@@ -1,0 +1,138 @@
+import Image from "next/image";
+import { GraduationCap, BookOpen, Video, Heart } from "lucide-react";
+
+type AboutProps = {
+  eyebrow: string;
+  title: string;
+  titleHighlight: string;
+  paragraphs: string[];
+  credentials: string[];
+  image: string;
+  profileImage: string;
+  name: string;
+  role: string;
+  ctaLabel: string;
+};
+
+export default function About({
+  eyebrow,
+  title,
+  titleHighlight,
+  paragraphs,
+  credentials,
+  image,
+  profileImage,
+  name,
+  role,
+}: AboutProps) {
+  const icons = [GraduationCap, BookOpen, Video, Heart];
+
+  return (
+    <section
+      id="sobre"
+      className="relative overflow-hidden bg-[var(--brand-beige)] py-16 sm:py-20 lg:py-24"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+          {/* Image side */}
+          <div className="relative">
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              {/* Profile photo - circular */}
+              <div className="absolute -left-2 -top-6 z-20 h-28 w-28 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl sm:h-36 sm:w-36 lg:-left-4 lg:-top-8">
+                <Image
+                  src={profileImage}
+                  alt={`Foto de perfil de ${name}`}
+                  fill
+                  sizes="(max-width: 768px) 112px, 144px"
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Main image */}
+              <div className="overflow-hidden rounded-[2.5rem] border-4 border-white bg-white shadow-2xl shadow-rose-900/10">
+                <Image
+                  src={image}
+                  alt={`${name}, ${role}`}
+                  width={864}
+                  height={1152}
+                  className="h-[420px] w-full object-cover object-center sm:h-[520px] lg:h-[560px]"
+                />
+              </div>
+
+              {/* Decorative card */}
+              <div className="absolute -bottom-6 -right-2 rounded-2xl border border-[var(--brand-beige-dark)] bg-white/95 px-5 py-4 shadow-xl backdrop-blur sm:-right-6">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--brand-rose-dark)]">
+                  Formação
+                </p>
+                <p className="mt-1 text-sm font-bold text-[var(--brand-text)]">
+                  UFRJ &middot; TCC
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Copy side */}
+          <div className="flex flex-col justify-center">
+            <span className="inline-flex items-center gap-2 self-start rounded-full bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-rose-dark)] shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-rose)]" />
+              {eyebrow}
+            </span>
+
+            <h2 className="mt-5 text-3xl font-bold leading-[1.15] text-[var(--brand-text)] sm:text-4xl">
+              {title}{" "}
+              <span className="text-rose-gradient">{titleHighlight}</span>
+            </h2>
+
+            <div className="mt-6 space-y-4">
+              {paragraphs.map((p) => (
+                <p
+                  key={p}
+                  className="text-sm leading-relaxed text-[var(--brand-text-muted)] sm:text-base"
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
+
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {credentials.map((c, idx) => {
+                const Icon = icons[idx % icons.length];
+                return (
+                  <li
+                    key={c}
+                    className="flex items-center gap-3 rounded-2xl border border-[var(--brand-beige-dark)] bg-white/80 p-3"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--brand-rose)]/12 text-[var(--brand-rose-dark)]">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <span className="text-sm font-medium text-[var(--brand-text)]">
+                      {c}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="mt-8 flex items-center gap-3 border-t border-[var(--brand-beige-dark)] pt-6">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-rose)] text-base font-bold text-white shadow-md">
+                {name
+                  .split(" ")
+                  .map((w) => w[0])
+                  .join("")
+                  .slice(0, 2)}
+              </span>
+              <div className="flex flex-col">
+                <span className="text-base font-bold text-[var(--brand-text)]">
+                  {name}
+                </span>
+                <span className="text-xs text-[var(--brand-text-muted)]">
+                  {role}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

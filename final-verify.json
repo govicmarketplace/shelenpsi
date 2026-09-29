@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "All good. The layout is clean, the header is positioned at the top (though standard scrolling behavior applies), the footer sits correctly at the bottom of the content flow, all images and text are fully visible without overlaps or cutoffs, and the contact form with all specified fields (name, email, WhatsApp, format options, message, submit) renders perfectly. No visual issues detected.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790698518,
+  "id": "202609300015127d8047df8f94443d",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202609300015127d8047df8f94443d",
+  "usage": {
+    "completion_tokens": 78,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 5489,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 5567
+  }
+}
