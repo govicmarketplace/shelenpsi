@@ -129,13 +129,20 @@
 }
 
 /* ============================================================
-   Scroll Reveal Animation
+   Scroll Reveal Animation (Progressive Enhancement)
    Add `.reveal` to any element to animate it on scroll-into-view.
    Start: opacity 0 + translateY(30px)  →  End: opacity 1 + translateY(0)
    Duration: 0.6s  •  Easing: ease-out
    Use `.delay-100` ... `.delay-700` for staggered (cascade) entrances.
+
+   IMPORTANT: Content is visible by default. The hidden state only
+   applies when `<html>` has the `.js-ready` class (added by an inline
+   head script before paint). This way, users without JS (or if JS
+   fails to load) still see all the content — no blank page.
    ============================================================ */
-.reveal {
+
+/* Hidden state — ONLY when JS is ready to drive the animation */
+.js-ready .reveal {
   opacity: 0;
   transform: translateY(30px);
   transition:
@@ -144,34 +151,35 @@
   will-change: opacity, transform;
 }
 
-.reveal.is-visible {
+.js-ready .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Stagger delays (scoped to .reveal for higher specificity) */
-.reveal.delay-100 {
+/* Stagger delays (scoped for higher specificity) */
+.js-ready .reveal.delay-100 {
   transition-delay: 0.1s;
 }
-.reveal.delay-200 {
+.js-ready .reveal.delay-200 {
   transition-delay: 0.2s;
 }
-.reveal.delay-300 {
+.js-ready .reveal.delay-300 {
   transition-delay: 0.3s;
 }
-.reveal.delay-400 {
+.js-ready .reveal.delay-400 {
   transition-delay: 0.4s;
 }
-.reveal.delay-500 {
+.js-ready .reveal.delay-500 {
   transition-delay: 0.5s;
 }
-.reveal.delay-700 {
+.js-ready .reveal.delay-700 {
   transition-delay: 0.7s;
 }
 
-/* Respect users who prefer reduced motion */
+/* Respect users who prefer reduced motion — always visible */
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal,
+  .js-ready .reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

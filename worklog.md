@@ -256,3 +256,48 @@ Stage Summary:
   - MutationObserver pega elementos adicionados dinamicamente.
 - Aplicado em ~44 elementos: títulos, cards, imagens, blocos de texto, CTAs em todas as seções.
 - Lint limpo, sem erros, verificado no browser com scroll real.
+
+---
+Task ID: 6
+Agent: main (Z.ai Code)
+Task: Corrigir problema "o site ficou sem carregar" — a página aparecia em branco/invisível por causa do efeito Scroll Reveal.
+
+Work Log:
+- Diagnóstico: A CSS `.reveal { opacity: 0 }` escondia TODO o conteúdo por padrão. O JavaScript (IntersectionObserver) precisava rodar para revelar os elementos, mas se o JS demorava/falhava (ou antes da hidratação), a página ficava invisível.
+- Confirmei o problema com agent-browser: 41 de 44 elementos `.reveal` estavam invisíveis (opacity:0) — só 3 tinham `.is-visible`.
+- Apliquei o padrão correto de Progressive Enhancement (3 camadas de proteção contra página em branco):
+
+1. CSS (globals.css): escopoei o estado oculto sob a classe `.js-ready`:
+   - Antes: `.reveal { opacity: 0 }` (escondia SEMPRE, mesmo sem JS)
+   - Depois: `.js-ready .reveal { opacity: 0 }` (só esconde quando JS confirma que está pronto)
+   - Resultado: sem JS (ou se JS falha), o conteúdo fica visível por padrão.
+
+2. Inline head script (layout.tsx `<head>`): roda ANTES do body renderizar:
+   - `document.documentElement.classList.add('js-ready')` — ativa o estado oculto só quando JS está disponível.
+   - Safety timeout de 2.5s: se 0 elementos foram revelados (JS quebrou completamente), remove `.js-ready` → tudo fica visível.
+
+3. Body-end inline script (layout.tsx, depois de `{children}`): roda logo após o HTML ser parseado, ANTES da hidratação do React:
+   - `getBoundingClientRect()` em cada `.reveal` não-revelado.
+   - Se o elemento está no viewport (above the fold), adiciona `.is-visible` imediatamente.
+   - Resultado: conteúdo acima da dobra é revelado sem esperar a hidratação → sem flash de página invisível.
+
+4. ScrollReveal component (useEffect): mantém o IntersectionObserver para elementos abaixo da dobra — revela ao rolar.
+
+- Removi o `<noscript>` fallback (não precisa mais — a CSS base já mantém conteúdo visível sem JS).
+- Lint: bun run lint → limpo.
+- Verificação com agent-browser (viewport 1440x900):
+  - `js-ready` presente no `<html>` ✓
+  - On load: 6 elementos hero revelados (H1, subtitle, CTAs, badges, social proof, imagem) ✓
+  - Após scroll to bottom: todos os 44 elementos com `.is-visible`, 0 escondidos ✓
+  - Após scroll back to top: 44 ainda visíveis (one-way, não reset) ✓
+  - Sem erros de console/runtime ✓
+  - VLM final: "Hero fully visible with headline, subtitle, CTAs, photo. No blank sections. Page looks complete and not broken."
+
+Stage Summary:
+- Problema de página em branco RESOLVIDO com 3 camadas de proteção:
+  1. CSS scoped em `.js-ready` — conteúdo visível por padrão sem JS.
+  2. Head script + safety timeout — ativa animação só quando JS pronto, com fallback de 2.5s.
+  3. Body-end script — revela above-the-fold imediatamente (antes da hidratação), eliminando o flash invisível.
+- Animação Scroll Reveal continua funcionando: above-the-fold anima na entrada, below-the-fold anima ao rolar.
+- Acessível: respeita prefers-reduced-motion; sem JS o conteúdo fica todo visível.
+- Lint limpo, sem erros, verificado no browser.

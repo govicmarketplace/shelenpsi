@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "1. **Hero Section:** Yes, it is fully visible. It includes the headline (\"Psicoterapia focada em Burnout...\"), subtitle, both CTAs (green \"Quero sair da sobrecarga\" and outline \"Conhecer a Rota\"), and the professional's photo (Shelen Santos).\n2. **Blank/Invisible Sections:** No, all sections (Pain Points, Methodology, Benefits, How it Works, About, Testimonials, FAQ, and Footer) are populated with content and images.\n3. **Overall Status:** The page looks complete, well-structured, and is not broken.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790726201,
+  "id": "20260930075634dd37bd7997754cc0",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260930075634dd37bd7997754cc0",
+  "usage": {
+    "completion_tokens": 131,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 5443,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 5574
+  }
+}

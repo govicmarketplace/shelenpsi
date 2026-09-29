@@ -55,16 +55,39 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        {/*
+          Progressive enhancement: mark `<html>` as JS-ready BEFORE the body
+          paints. The CSS only hides `.reveal` elements when this class is
+          present, so users without JS (or if JS fails) still see all content.
+          The safety timeout removes the class if the ScrollReveal observer
+          never runs (e.g. a runtime error), guaranteeing content is visible.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('js-ready');setTimeout(function(){if(document.querySelectorAll('.reveal').length>0&&document.querySelectorAll('.reveal.is-visible').length===0){document.documentElement.classList.remove('js-ready')}},2500);",
+          }}
+        />
+      </head>
       <body
         className={`${montserrat.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         {children}
+        {/*
+          Body-end inline script: immediately reveal above-the-fold `.reveal`
+          elements right after the HTML is parsed (before React hydration).
+          This eliminates the blank-page window between first paint and the
+          ScrollReveal effect running.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var vh=window.innerHeight;document.querySelectorAll('.reveal:not(.is-visible)').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<vh&&r.bottom>0){el.classList.add('is-visible')}})})()",
+          }}
+        />
         <ScrollReveal />
         <Toaster />
-        {/* Fallback for users with JS disabled: reveal everything immediately */}
-        <noscript>
-          <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
-        </noscript>
       </body>
     </html>
   );

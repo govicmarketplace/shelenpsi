@@ -9,14 +9,18 @@ import { useEffect } from "react";
  * class and adds the `.is-visible` class when it scrolls into the viewport.
  * The actual animation (fade-in + slide-up) is defined in CSS (globals.css).
  *
+ * IMPORTANT — Progressive enhancement strategy:
+ *  • The CSS only hides `.reveal` elements when `<html>` has the `.js-ready`
+ *    class (added by an inline head script before paint).
+ *  • So if JS fails or is disabled, content stays visible — no blank page.
+ *  • On mount, this component SYNCHRONOUSLY reveals any `.reveal` element
+ *    already inside the viewport (prevents a flash of invisible content for
+ *    above-the-fold elements), then sets up an IntersectionObserver for the
+ *    remaining (below-the-fold) elements.
+ *
  * Usage: drop `<ScrollReveal />` once near the root layout. Then add the
  * `reveal` class (optionally with `delay-100` ... `delay-700`) to any
  * element you want to animate on scroll.
- *
- * - Respects `prefers-reduced-motion` (makes everything visible immediately).
- * - Uses a MutationObserver to pick up `.reveal` elements added dynamically
- *   (e.g. after client-side re-renders).
- * - Each element animates only once (observer is disconnected after reveal).
  */
 export default function ScrollReveal() {
   useEffect(() => {
@@ -24,7 +28,8 @@ export default function ScrollReveal() {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    // Fallback: if IntersectionObserver isn't available, reveal everything.
+    // Fallback: reveal everything immediately if no IntersectionObserver or
+    // the user prefers reduced motion.
     if (!("IntersectionObserver" in window) || prefersReduced) {
       document
         .querySelectorAll(".reveal")
@@ -32,6 +37,19 @@ export default function ScrollReveal() {
       return;
     }
 
+    // 1. Synchronously reveal any `.reveal` element already in the viewport.
+    //    This runs right after hydration, minimizing (but not fully
+    //    eliminating) the brief moment where above-the-fold content is
+    //    hidden by the `.js-ready .reveal` CSS rule.
+    const viewportH = window.innerHeight;
+    document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => {
+      const rect = (el as HTMLElement).getBoundingClientRect();
+      if (rect.top < viewportH && rect.bottom > 0) {
+        el.classList.add("is-visible");
+      }
+    });
+
+    // 2. Observe the remaining (below-the-fold) elements.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -42,7 +60,6 @@ export default function ScrollReveal() {
         });
       },
       {
-        // Trigger when ~15% of the element is visible, slightly before fully in view.
         threshold: 0.15,
         rootMargin: "0px 0px -8% 0px",
       },
@@ -56,7 +73,7 @@ export default function ScrollReveal() {
 
     scan();
 
-    // Re-scan when new content is added to the DOM (client re-renders, etc.)
+    // 3. Re-scan when new content is added to the DOM (client re-renders).
     const mutationObserver = new MutationObserver(() => {
       scan();
     });
