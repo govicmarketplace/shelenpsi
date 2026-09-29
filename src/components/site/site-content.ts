@@ -2,7 +2,6 @@ import {
   Radar,
   LineChart,
   Compass,
-  MessageCircle,
   Laptop,
   Home as HomeIcon,
   type LucideIcon,
@@ -11,15 +10,15 @@ import {
 export const siteConfig = {
   brand: {
     name: "Shelen Santos",
-    role: "Psicóloga Comportamental • CRP 00/00000",
+    role: "Psicóloga Comportamental • CRP-04/56080",
     tagline: "Rota Antiburnout",
   },
   contact: {
-    email: "contato@brunachelen.com.br",
-    phone: "+55 21 90000-0000",
-    instagram: "@brunachelen.psi",
-    whatsapp: "https://wa.me/5521900000000",
-    location: "Botafogo & Tijuca - Rio de Janeiro, RJ",
+    email: "shelenpsi@gmail.com",
+    phone: "+55 34 9253-0868",
+    instagram: "@shelenpsi",
+    whatsapp: "https://wa.me/5534925308688",
+    location: "Online para o Brasil & Presencial",
   },
   nav: [
     { label: "Início", href: "#inicio" },
@@ -37,9 +36,9 @@ export const siteConfig = {
     titleHighlight: "cansou de viver no limite",
     subtitle:
       "Você sente um cansaço que não passa com o descanso e vive sobrecarregada? Conheça o acompanhamento terapêutico que te ajuda a sair do esgotamento sem precisar largar a sua carreira.",
-    badges: ["Para mulheres de 25 a 45 anos", "Online e presencial no Rio"],
-    image: "/images/hero-bruna.png",
-    imageAlt: "Shelen Santos, psicóloga, sentada em um sofá aconchegante",
+    badges: ["Para mulheres de 25 a 45 anos", "Online e presencial"],
+    image: "/images/shelen-hero.jpg",
+    imageAlt: "Shelen Santos, psicóloga, foto oficial",
     ctaLabel: "Quero sair da sobrecarga",
     secondaryCtaLabel: "Conhecer a Rota",
   },
@@ -63,8 +62,8 @@ export const siteConfig = {
     eyebrow: "O que você alcança",
     title: "Iniciar a Rota Antiburnout vai transformar a sua rotina. Minha proposta é que você",
     titleHighlight: "alcance:",
-    image: "/images/about-bruna.png",
-    imageAlt: "Bruna Chelen sentada em uma poltrona, ambiente acolhedor",
+    image: "/images/shelen-benefits.jpg",
+    imageAlt: "Shelen Santos, psicóloga, foto oficial",
     ctaLabel: "Agendar minha primeira sessão",
   },
   logistics: {
@@ -87,12 +86,23 @@ export const siteConfig = {
       "Mulheres 25-45 anos",
       "Online e Presencial",
     ],
-    image: "/images/about-bruna.png",
-    profileImage: "/images/profile-bruna.png",
+    education: [
+      {
+        degree: "Graduação em Psicologia",
+        school: "Faculdade Pitágoras de Uberlândia",
+      },
+      {
+        degree: "Pós-Graduação Lato Sensu",
+        school:
+          "Psicologia Comportamental e Cognitiva – Faculdade Venda Nova do Imigrante",
+      },
+    ],
+    image: "/images/shelen-about.jpg",
+    profileImage: "/images/shelen-about.jpg",
     name: "Shelen Santos",
-    role: "Psicóloga Comportamental • CRP 00/00000",
+    role: "Psicóloga Comportamental • CRP-04/56080",
     ctaLabel: "Falar com a Shelen no WhatsApp",
-    whatsappUrl: "https://wa.me/5521900000000",
+    whatsappUrl: "https://wa.me/5534925308688",
   },
   testimonials: {
     eyebrow: "Quem já começou",
@@ -114,7 +124,7 @@ export const siteConfig = {
   },
   // Floating WhatsApp button (bottom-left, JoinChat style with hover balloon)
   floatingWhatsapp: {
-    phone: "5521900000000",
+    phone: "5534925308688",
     label: "Olá! Posso te ajudar?",
     message:
       "Olá, Shelen! Vim pelo site da Rota Antiburnout e gostaria de saber mais.",
@@ -128,22 +138,22 @@ export const problems: {
   description: string;
 }[] = [
   {
-    image: "/images/problem-burnout.png",
-    alt: "Homem exausto trabalhando tarde da noite no laptop",
+    image: "/images/problem-cansaco.png",
+    alt: "Mulher brasileira exausta trabalhando no computador em home office",
     title: "Cansaço constante",
     description:
       "Um cansaço profundo que não passa, mesmo após uma noite inteira de sono ou um final de semana de descanso.",
   },
   {
-    image: "/images/problem-anxiety.png",
-    alt: "Mulher deitada na cama com expressão preocupada",
+    image: "/images/problem-sobrecarga.png",
+    alt: "Mulher brasileira na cama ao amanhecer olhando o celular com olhar preocupado",
     title: "Sobrecarga diária",
     description:
       "Uma sensação de estar sempre devendo algo no trabalho ou na vida pessoal, como se a lista nunca acabasse.",
   },
   {
-    image: "/images/problem-sadness.png",
-    alt: "Homem sentado na beira da cama com as mãos na cabeça",
+    image: "/images/problem-culpa.png",
+    alt: "Mulher brasileira no sofá com café e celular, pensativa e inquieta",
     title: "Culpa ao relaxar",
     description:
       "Uma culpa paralisante até mesmo na hora de relaxar, como se você não tivesse o direito de fazer uma pausa.",

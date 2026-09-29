@@ -1,4 +1,3 @@
-import { db } from "@/lib/db";
 import {
   siteConfig,
   problems,
@@ -21,20 +20,11 @@ import Faq from "@/components/site/sections/faq";
 import FinalCta from "@/components/site/sections/final-cta";
 
 export default async function Home() {
-  // Count existing leads so we can show a small social-proof number.
-  let savedLeads = 0;
-  try {
-    savedLeads = await db.lead.count();
-  } catch {
-    savedLeads = 0;
-  }
-
   return (
     <div className="flex min-h-screen flex-col bg-[var(--brand-cream)]">
       <SiteHeader brand={siteConfig.brand} />
       <main className="flex-1">
         <Hero
-          eyebrow={siteConfig.hero.eyebrow}
           title={siteConfig.hero.title}
           titleHighlight={siteConfig.hero.titleHighlight}
           subtitle={siteConfig.hero.subtitle}
@@ -81,6 +71,7 @@ export default async function Home() {
           titleHighlight={siteConfig.about.titleHighlight}
           paragraphs={siteConfig.about.paragraphs}
           credentials={siteConfig.about.credentials}
+          education={siteConfig.about.education}
           image={siteConfig.about.image}
           profileImage={siteConfig.about.profileImage}
           name={siteConfig.about.name}
@@ -107,7 +98,6 @@ export default async function Home() {
           subtitle={siteConfig.finalCta.subtitle}
           ctaLabel={siteConfig.finalCta.ctaLabel}
           contact={siteConfig.contact}
-          savedLeads={savedLeads}
         />
       </main>
       <FloatingWhatsApp

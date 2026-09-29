@@ -15,7 +15,6 @@ type FinalCtaProps = {
     whatsapp: string;
     location: string;
   };
-  savedLeads: number;
 };
 
 type FormState = {
@@ -40,7 +39,6 @@ export default function FinalCta({
   subtitle,
   ctaLabel,
   contact,
-  savedLeads,
 }: FinalCtaProps) {
   const [form, setForm] = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -154,8 +152,7 @@ export default function FinalCta({
           </ul>
 
           <p className="mt-6 text-xs text-white/70">
-            Mais de {savedLeads > 0 ? savedLeads : 80} mulheres já começaram a
-            Rota Antiburnout.
+            Mais de centenas de mulheres já começaram a Rota Antiburnout.
           </p>
         </div>
 

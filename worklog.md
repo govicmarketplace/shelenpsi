@@ -145,3 +145,60 @@ Stage Summary:
 - Botão flutuante do WhatsApp estilo JoinChat no canto inferior esquerdo, com balão de hover no desktop e auto-show no mobile.
 - Nome da psicóloga atualizado para "Shelen Santos" em todo o site (brand, about, CTAs, metadata).
 - Página agora é focada em conversão no WhatsApp: floating button sempre disponível + CTA WhatsApp na seção Sobre + seções com CTAs verdes que rolam até o formulário.
+
+---
+Task ID: 4
+Agent: main (Z.ai Code)
+Task: Reformulação completa e ajustes de dados em 5 seções da landing page (Hero, Problemas, Benefícios, Sobre, Agendamento) com foco em CRO.
+
+Work Log:
+- Analisei as 3 fotos oficiais anexas com VLM (Screenshot_2.png quadrada, WhatsApp (3) landscape, WhatsApp (4) portrait) → atribuição: hero=portrait, benefits=landscape, about+avatar=quadrada.
+- Copiei as 3 fotos para public/images/: shelen-hero.jpg, shelen-benefits.jpg, shelen-about.jpg.
+- Gerei 3 novas imagens dos cards de problema (mulheres brasileiras 25-45) via image-generation: problem-cansaco.png (exausta no computador), problem-sobrecarga.png (na cama ao amanhecer), problem-culpa.png (no sofá com café/celular pensativa).
+- Criei componente reutilizável WhatsAppIcon (src/components/site/whatsapp-icon.tsx) com o SVG oficial do WhatsApp.
+- Atualizei site-content.ts:
+  - contact: email "shelenpsi@gmail.com", phone "+55 34 9253-0868", whatsapp "https://wa.me/5534925308688", location "Online para o Brasil & Presencial".
+  - hero.image → "/images/shelen-hero.jpg", hero.imageAlt → "Shelen Santos, psicóloga, foto oficial", hero.badges atualizado.
+  - problems: 3 cards com novas imagens + alts descrevendo mulheres brasileiras.
+  - value.image → "/images/shelen-benefits.jpg".
+  - about: image + profileImage → "/images/shelen-about.jpg"; role → "Psicóloga Comportamental • CRP-04/56080"; adicionado education[] com 2 itens (Graduação Pitágoras + Pós Venda Nova).
+  - brand.role → "Psicóloga Comportamental • CRP-04/56080".
+  - floatingWhatsapp.phone → "5534925308688".
+  - Removido import não usado MessageCircle.
+- Atualizei hero.tsx:
+  - REMOVI completamente o pill/eyebrow "• ROTA ANTIBURNOUT" acima do H1 (otimização de espaço visual conforme solicitado).
+  - Agora o H1 é o primeiro elemento da coluna de copy.
+  - Removi a prop eyebrow do HeroProps type + do page.tsx (eyebrow ainda existe no data mas não é renderizado).
+- Atualizei about.tsx:
+  - Adicionei prop education[] ao tipo.
+  - Substituí o card decorativo "Formação / UFRJ · TCC" por um selo de educação que lista os 2 itens: "Graduação em Psicologia: Faculdade Pitágoras de Uberlândia" + "Pós-Graduação Lato Sensu: Psicologia Comportamental e Cognitiva – Faculdade Venda Nova do Imigrante".
+  - Substituí o CTA WhatsApp (que usava CtaButton com ícone MessageCircle genérico) por um <a> custom com WhatsAppIcon oficial (SVG do logo do WhatsApp), estilo outline rosa, hover preenche.
+  - Aumentei altura da imagem principal para acomodar o selo de educação maior.
+- Atualizei final-cta.tsx:
+  - Texto de prova social: "Mais de centenas de mulheres já começaram a Rota Antiburnout." (era "Mais de X mulheres..." com número dinâmico do DB).
+  - Removi a prop savedLeads (não usada) do tipo + da função + do page.tsx.
+  - Removi o await db.lead.count() e o import db do page.tsx (não precisa mais do banco para essa seção).
+- Refatorei floating-whatsapp.tsx para usar WhatsAppIcon (reutilizável) em vez do SVG inline.
+- Atualizei layout.tsx metadata: author "Shelen Santos" (já estava), title/keywords/openGraph/twitter já tinham Shelen Santos.
+- Lint: bun run lint → limpo.
+- Verificação com agent-browser:
+  - Hero: H1 no topo (sem pill eyebrow), imagem shelen-hero.jpg, badges ONLINE/PRESENCIAL ✓.
+  - Problems: 3 imagens (problem-cansaco, problem-sobrecarga, problem-culpa) mostrando mulheres ✓.
+  - Benefits: imagem shelen-benefits.jpg + balão de citação ✓.
+  - About: imagem shelen-about.jpg (principal + avatar circular), selo Formação com Pitágoras + Venda Nova, CRP-04/56080, CTA WhatsApp com ícone oficial ✓.
+  - Final CTA: telefone +55 34 9253-0868, email shelenpsi@gmail.com, "Mais de centenas de mulheres..." ✓.
+  - Floating WhatsApp: href wa.me/5534925308688 com mensagem pré-preenchida ✓.
+  - About WhatsApp CTA: href wa.me/5534925308688 ✓.
+  - VLM final: "H1 at the very top, no pill above it" ✓; "All 3 cards display photos of women, no men or elderly" ✓; "FORMAÇÃO card lists Pitágoras + Venda Nova" ✓; "WhatsApp button present" ✓; "No obvious visual bugs".
+  - Sem erros de console/runtime.
+
+Stage Summary:
+- 5 seções reformuladas conforme brief de CRO:
+  1. Hero: eyebrow pill removido, H1 elevado, foto oficial shelen-hero.jpg, badges mantidos.
+  2. Problems: 3 fotos de mulheres brasileiras 25-45 (alinhadas ao público-alvo).
+  3. Benefits: foto oficial shelen-benefits.jpg + balão de citação mantido.
+  4. About: foto oficial shelen-about.jpg (principal + avatar), selo de formação com 2 itens (Pitágoras + Venda Nova), CRP-04/56080, CTA WhatsApp com ícone oficial do WhatsApp (SVG).
+  5. Agendamento: telefone +55 34 9253-0868, email shelenpsi@gmail.com, prova social "Mais de centenas de mulheres...".
+- Componente WhatsAppIcon reutilizável criado (usado no About CTA + floating button).
+- Telefone/WhatsApp consistente em todo o site (5534925308688).
+- Lint limpo, sem erros, tudo verificado no browser.

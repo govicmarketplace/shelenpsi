@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { GraduationCap, BookOpen, Video, Heart, MessageCircle } from "lucide-react";
-import CtaButton from "../cta-button";
+import { GraduationCap, BookOpen, Video, Heart } from "lucide-react";
+import WhatsAppIcon from "../whatsapp-icon";
+
+type EducationItem = { degree: string; school: string };
 
 type AboutProps = {
   eyebrow: string;
@@ -8,6 +10,7 @@ type AboutProps = {
   titleHighlight: string;
   paragraphs: string[];
   credentials: string[];
+  education: EducationItem[];
   image: string;
   profileImage: string;
   name: string;
@@ -22,6 +25,7 @@ export default function About({
   titleHighlight,
   paragraphs,
   credentials,
+  education,
   image,
   profileImage,
   name,
@@ -59,18 +63,28 @@ export default function About({
                   alt={`${name}, ${role}`}
                   width={864}
                   height={1152}
-                  className="h-[420px] w-full object-cover object-center sm:h-[520px] lg:h-[560px]"
+                  className="h-[440px] w-full object-cover object-center sm:h-[560px] lg:h-[600px]"
                 />
               </div>
 
-              {/* Decorative card */}
-              <div className="absolute -bottom-6 -right-2 rounded-2xl border border-[var(--brand-beige-dark)] bg-white/95 px-5 py-4 shadow-xl backdrop-blur sm:-right-6">
+              {/* Education seal card */}
+              <div className="absolute -bottom-8 left-2 right-2 rounded-2xl border border-[var(--brand-beige-dark)] bg-white/95 px-4 py-3 shadow-xl backdrop-blur sm:left-4 sm:right-4">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--brand-rose-dark)]">
                   Formação
                 </p>
-                <p className="mt-1 text-sm font-bold text-[var(--brand-text)]">
-                  UFRJ &middot; TCC
-                </p>
+                <ul className="mt-2 space-y-1.5">
+                  {education.map((e) => (
+                    <li
+                      key={e.degree}
+                      className="text-xs leading-snug text-[var(--brand-text)]"
+                    >
+                      <span className="font-bold">{e.degree}:</span>{" "}
+                      <span className="text-[var(--brand-text-muted)]">
+                        {e.school}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -135,16 +149,17 @@ export default function About({
               </div>
             </div>
 
-            <div className="mt-6">
-              <CtaButton
-                label={ctaLabel}
-                size="lg"
-                href={whatsappUrl}
-                external
-                icon={MessageCircle}
-                variant="outline"
-              />
-            </div>
+            {/* WhatsApp CTA with official WhatsApp icon */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="group mt-6 inline-flex items-center justify-center gap-2 rounded-full border-2 border-[var(--brand-rose)] px-8 py-4 text-base font-semibold text-[var(--brand-rose-dark)] transition-colors hover:bg-[var(--brand-rose)] hover:text-white"
+              aria-label={ctaLabel}
+            >
+              <WhatsAppIcon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+              <span>{ctaLabel}</span>
+            </a>
           </div>
         </div>
       </div>

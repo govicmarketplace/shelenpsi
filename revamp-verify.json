@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Based on the image provided, here is the verification of the updated landing page:\n\n**1) Hero Section**\n*   **H1 Headline:** **Yes.** The H1 (\"Psicoterapia focada em Burnout...\") is at the very top of the main content area. There is no small pill or badge positioned above it.\n*   **Photo & Badges:** **Yes.** The professional's photo (Shelen Santos) is on the right side. It features a floating \"ONLINE\" badge in the top right corner and a \"PRESENCIAL\" badge (labeled \"Rio de Janeiro\") in the bottom left.\n\n**2) Problems Section**\n*   **Visuals:** **Yes.** All 3 cards (\"Cansaço constante\", \"Sobrecarga diária\", \"Culpa ao relaxar\") display photos of women. There are no men or elderly individuals shown in this section.\n\n**3) Benefits Section**\n*   **Layout:** **Yes.** This section (\"O que você alcança\") features a large photo of the professional on the left side.\n*   **Quote:** **Yes.** There is a white speech bubble/quote balloon overlapping the bottom right of her photo containing the text: *\"Um espaço seguro, livre de julgamentos.\"*\n\n**4) About Section**\n*   **Education Seal:** **Yes.** There is a \"FORMAÇÃO\" card that lists two specific items: \"Pós-Graduação em Psicologia\" and \"Pitágoras + Venda Nova\".\n*   **WhatsApp Button:** **Yes.** There is a prominent button labeled \"Falar com a Shelen no WhatsApp\" located below the professional's bio text.\n\n**5) Visual Issues**\n*   **General:** The layout appears clean, consistent, and well-structured with good hierarchy. No obvious visual bugs, alignment issues, or broken elements were detected in this view.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790724804,
+  "id": "202609300733142cf067c4f29e4140",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202609300733142cf067c4f29e4140",
+  "usage": {
+    "completion_tokens": 403,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 5515,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 5918
+  }
+}

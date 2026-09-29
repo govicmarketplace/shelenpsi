@@ -3,7 +3,6 @@ import { MapPin, Globe2, ShieldCheck, Star } from "lucide-react";
 import CtaButton from "../cta-button";
 
 type HeroProps = {
-  eyebrow: string;
   title: string;
   titleHighlight: string;
   subtitle: string;
@@ -15,7 +14,6 @@ type HeroProps = {
 };
 
 export default function Hero({
-  eyebrow,
   title,
   titleHighlight,
   subtitle,
@@ -43,12 +41,7 @@ export default function Hero({
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-12 lg:pb-24 lg:pt-16 lg:px-8">
         {/* Left: copy */}
         <div className="flex flex-col items-start">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-rose-light)] bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--brand-rose-dark)] shadow-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-rose)]" />
-            {eyebrow}
-          </span>
-
-          <h1 className="mt-6 text-4xl font-bold leading-[1.08] text-[var(--brand-text)] sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-bold leading-[1.08] text-[var(--brand-text)] sm:text-5xl lg:text-6xl">
             {title}{" "}
             <span className="text-rose-gradient">{titleHighlight}</span>
           </h1>
