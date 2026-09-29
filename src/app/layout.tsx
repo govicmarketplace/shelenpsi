@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bruna Chelen | Rota Antiburnout - Psicologia Comportamental",
+  title: "Shelen Santos | Rota Antiburnout - Psicologia Comportamental",
   description:
     "Psicoterapia focada em burnout para mulheres de 25 a 45 anos que cansaram de viver no limite. Acompanhamento terapêutico prático para sair da sobrecarga sem largar a sua carreira. Online e presencial no Rio de Janeiro.",
   keywords: [
@@ -30,18 +30,18 @@ export const metadata: Metadata = {
     "ansiedade no trabalho",
     "psicóloga Rio de Janeiro",
     "atendimento online",
-    "Bruna Chelen",
+    "Shelen Santos",
   ],
-  authors: [{ name: "Bruna Chelen" }],
+  authors: [{ name: "Shelen Santos" }],
   openGraph: {
-    title: "Bruna Chelen | Rota Antiburnout",
+    title: "Shelen Santos | Rota Antiburnout",
     description:
       "Psicoterapia focada em burnout para mulheres de 25 a 45 anos. Saia da sobrecarga sem largar a sua carreira.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bruna Chelen | Rota Antiburnout",
+    title: "Shelen Santos | Rota Antiburnout",
     description:
       "Psicoterapia focada em burnout. Online para o Brasil e presencial no Rio de Janeiro.",
   },

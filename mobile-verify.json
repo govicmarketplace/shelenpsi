@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Based on the screenshot provided:\n\n1.  **Header:** **Yes**, it displays only the logo (heart icon) and the name \"Shelen Santos\" with the subtitle \"ROTA ANTIBURNOUT\". There is no navigation menu or hamburger icon visible.\n2.  **WhatsApp Button:** **Yes**, there is a green WhatsApp button in the bottom-left corner with a white chat bubble displaying \"Olá! Posso te ajudar?\".\n3.  **Layout Issues:**\n    *   **Text Overlap/Cutoff:** The text in the main headline (\"cansou de viver...\") and the description paragraph appears to be cut off or overlapping on the right side, suggesting the container width or padding needs adjustment.\n    *   **Badge Obstruction:** The red \"1 Issue\" notification badge at the bottom left partially overlaps/obscures the WhatsApp icon.\n    *   **List Truncation:** The text next to the shield icons (e.g., \"Para mulheres de 25 a 45 anos\") is cut off on the right edge.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790722028,
+  "id": "202609300646556dff4942a9cc48ed",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202609300646556dff4942a9cc48ed",
+  "usage": {
+    "completion_tokens": 218,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 456,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 674
+  }
+}

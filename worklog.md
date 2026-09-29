@@ -95,3 +95,53 @@ Stage Summary:
 - FAQ ganhou a pergunta sobre ciclos de 4 sessões e a resposta da abordagem agora cita a Rota.
 - Metadados SEO atualizados para "Rota Antiburnout".
 - Tudo verificado no browser sem erros.
+
+---
+Task ID: 3
+Agent: main (Z.ai Code)
+Task: Remover o menu do header, colocar logo + nome "Shelen Santos" no header, remover o rodapé, e adicionar botão flutuante do WhatsApp no canto inferior esquerdo (estilo JoinChat) com balãozinho ao passar o mouse.
+
+Work Log:
+- Atualizei src/components/site/site-content.ts:
+  - brand.name: "Bruna Chelen" → "Shelen Santos"
+  - about.name/paragraphs/ctaLabel: "Bruna" → "Shelen" (incl. "Falar com a Shelen no WhatsApp")
+  - hero.imageAlt: atualizado para "Shelen Santos"
+  - Adicionei bloco floatingWhatsapp: { phone: "5521900000000", label: "Olá! Posso te ajudar?", message: "Olá, Shelen! Vim pelo site da Rota Antiburnout e gostaria de saber mais." }
+- Reescrevi src/components/site/header.tsx:
+  - Removi a nav (links Início/A Rota/Atendimentos/etc.) e o botão CTA "Quero sair da sobrecarga".
+  - Removi o menu hambúrguer mobile e todo o estado open.
+  - Mantive só o logo (ícone HeartHandshake em círculo rosa) + nome "Shelen Santos" + tagline "ROTA ANTIBURNOUT", left-aligned, com o efeito sticky/scroll-aware preservado.
+  - z-40 para não sobrepor o FloatingWhatsApp (z-50).
+- Criei src/components/site/floating-whatsapp.tsx (client component):
+  - Botão verde fixo bottom-5 left-5, z-50, 56x56px, com SVG oficial do WhatsApp.
+  - Ring pulsante (animate-ping) em verde #25D366 com opacity-40 atrás do botão.
+  - Balão branco à direita do botão com seta apontando para a esquerda:
+    - Texto principal: label ("Olá! Posso te ajudar?")
+    - Subtexto: "Toque para conversar no WhatsApp"
+    - Botão X (dismiss) no canto do balão quando auto-shown.
+  - Comportamento:
+    - Desktop (hover: hover): balão oculto por padrão, aparece no hover do grupo (group-hover via CSS).
+    - Mobile/touch (hover: none): balão auto-aparece após 2.5s (matchMedia) e fica visível; pode ser dispensado com o X.
+  - Link: https://wa.me/{phone}?text={message} com target=_blank, rel=noreferrer noopener.
+  - aria-label "Falar no WhatsApp".
+  - print:hidden para não aparecer em impressão.
+- Atualizei src/app/page.tsx:
+  - Removi import e uso de SiteFooter (rodapé removado).
+  - Removi prop nav do SiteHeader.
+  - Adicionei <FloatingWhatsApp phone/label/message /> como último elemento (irmão do main, fixed).
+  - Como o FinalCta já tem lista de contato (telefone, e-mail, sessões, espaço seguro), ele substitui naturalmente o rodapé.
+- Atualizei src/app/layout.tsx metadata: title/keywords/openGraph/twitter/author todos trocados de "Bruna Chelen" para "Shelen Santos".
+- Lint: bun run lint → limpo.
+- Verificação com agent-browser:
+  - Desktop 1440x900: header mostra só "Shelen Santos ROTA ANTIBURNOUT" (sem nav, sem CTA) ✓; floating button verde no canto inferior esquerdo ✓; balão "Olá! Posso te ajudar?" visível ✓ (headless matchMedia trata como mobile); href do botão = https://wa.me/5521900000000?text=Olá,Shelen!... ✓; 0 tags <footer> no HTML ✓.
+  - VLM desktop: confirma header sem menu, botão verde bottom-left com balão, sem footer.
+  - Mobile 390x844: header só com logo+nome (sem hambúrguer) ✓; botão+balão bottom-left ✓; headline do hero completa (wrap em 5 linhas, sem corte) ✓; subtítulo e 2 CTAs visíveis ✓.
+  - VLM mobile: confirma tudo; "1 Issue" badge é só o indicador do Next.js dev tools (não existe em produção).
+  - Sem erros de console/runtime.
+
+Stage Summary:
+- Header minimalista: só logo + "Shelen Santos" + tagline (menu removido).
+- Rodapé removido; o bloco FinalCta (com contato + formulário) funciona como fechamento da página.
+- Botão flutuante do WhatsApp estilo JoinChat no canto inferior esquerdo, com balão de hover no desktop e auto-show no mobile.
+- Nome da psicóloga atualizado para "Shelen Santos" em todo o site (brand, about, CTAs, metadata).
+- Página agora é focada em conversão no WhatsApp: floating button sempre disponível + CTA WhatsApp na seção Sobre + seções com CTAs verdes que rolam até o formulário.

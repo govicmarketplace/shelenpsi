@@ -9,7 +9,7 @@ import {
   testimonials,
 } from "@/components/site/site-content";
 import SiteHeader from "@/components/site/header";
-import SiteFooter from "@/components/site/footer";
+import FloatingWhatsApp from "@/components/site/floating-whatsapp";
 import Hero from "@/components/site/sections/hero";
 import Problems from "@/components/site/sections/problems";
 import Methodology from "@/components/site/sections/methodology";
@@ -31,7 +31,7 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-screen flex-col bg-[var(--brand-cream)]">
-      <SiteHeader brand={siteConfig.brand} nav={siteConfig.nav} />
+      <SiteHeader brand={siteConfig.brand} />
       <main className="flex-1">
         <Hero
           eyebrow={siteConfig.hero.eyebrow}
@@ -110,7 +110,11 @@ export default async function Home() {
           savedLeads={savedLeads}
         />
       </main>
-      <SiteFooter brand={siteConfig.brand} contact={siteConfig.contact} nav={siteConfig.nav} />
+      <FloatingWhatsApp
+        phone={siteConfig.floatingWhatsapp.phone}
+        label={siteConfig.floatingWhatsapp.label}
+        message={siteConfig.floatingWhatsapp.message}
+      />
     </div>
   );
 }

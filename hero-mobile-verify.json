@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**Yes.**\n\n*   **Headline:** Fully visible, wrapped across 5 lines (\"Psicoterapia focada em Burnout para quem cansou de viver no limite\").\n*   **Subtitle:** Fully visible (the paragraph starting with \"Você sente um cansaço...\").\n*   **CTA Buttons:** Both are fully visible (\"Quero sair da sobrecarga\" and \"Conhecer a Rota\").",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790722062,
+  "id": "202609300647400a00ff5adc1f424d",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202609300647400a00ff5adc1f424d",
+  "usage": {
+    "completion_tokens": 91,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 461,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 552
+  }
+}

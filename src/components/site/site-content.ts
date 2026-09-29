@@ -10,7 +10,7 @@ import {
 
 export const siteConfig = {
   brand: {
-    name: "Bruna Chelen",
+    name: "Shelen Santos",
     role: "Psicóloga Comportamental • CRP 00/00000",
     tagline: "Rota Antiburnout",
   },
@@ -39,7 +39,7 @@ export const siteConfig = {
       "Você sente um cansaço que não passa com o descanso e vive sobrecarregada? Conheça o acompanhamento terapêutico que te ajuda a sair do esgotamento sem precisar largar a sua carreira.",
     badges: ["Para mulheres de 25 a 45 anos", "Online e presencial no Rio"],
     image: "/images/hero-bruna.png",
-    imageAlt: "Bruna Chelen, psicóloga, sentada em um sofá aconchegante",
+    imageAlt: "Shelen Santos, psicóloga, sentada em um sofá aconchegante",
     ctaLabel: "Quero sair da sobrecarga",
     secondaryCtaLabel: "Conhecer a Rota",
   },
@@ -78,7 +78,7 @@ export const siteConfig = {
     title: "Quem irá te guiar",
     titleHighlight: "nesta Rota?",
     paragraphs: [
-      "Sou a Bruna Chelen, psicóloga especialista em Psicologia Comportamental. Meu foco é ajudar mulheres de 25 a 45 anos que estão no limite do esgotamento e do burnout a recuperarem o controle de suas vidas.",
+      "Sou a Shelen Santos, psicóloga especialista em Psicologia Comportamental. Meu foco é ajudar mulheres de 25 a 45 anos que estão no limite do esgotamento e do burnout a recuperarem o controle de suas vidas.",
       "Trabalho com práticas baseadas em evidências para te ajudar a identificar a raiz da sua sobrecarga no trabalho e construir uma rotina mais leve e sustentável. Você não precisa largar a sua profissão para ter paz, você só precisa das ferramentas certas para reorganizar a sua rota.",
     ],
     credentials: [
@@ -89,9 +89,9 @@ export const siteConfig = {
     ],
     image: "/images/about-bruna.png",
     profileImage: "/images/profile-bruna.png",
-    name: "Bruna Chelen",
+    name: "Shelen Santos",
     role: "Psicóloga Comportamental • CRP 00/00000",
-    ctaLabel: "Falar com a Bruna no WhatsApp",
+    ctaLabel: "Falar com a Shelen no WhatsApp",
     whatsappUrl: "https://wa.me/5521900000000",
   },
   testimonials: {
@@ -111,6 +111,13 @@ export const siteConfig = {
     subtitle:
       "Agende sua primeira sessão da Rota Antiburnout. Um espaço para entender sua rotina, mapear seus gatilhos e construir um caminho prático de volta para a sua energia.",
     ctaLabel: "Quero começar agora",
+  },
+  // Floating WhatsApp button (bottom-left, JoinChat style with hover balloon)
+  floatingWhatsapp: {
+    phone: "5521900000000",
+    label: "Olá! Posso te ajudar?",
+    message:
+      "Olá, Shelen! Vim pelo site da Rota Antiburnout e gostaria de saber mais.",
   },
 };
 
