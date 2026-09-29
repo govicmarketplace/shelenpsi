@@ -68,7 +68,7 @@ export default function SiteHeader({ brand, nav }: SiteHeaderProps) {
         </nav>
 
         <div className="hidden lg:block">
-          <CtaButton label="Agendar Atendimento" className="shadow-md" />
+          <CtaButton label="Quero sair da sobrecarga" className="shadow-md" />
         </div>
 
         <button
@@ -104,7 +104,7 @@ export default function SiteHeader({ brand, nav }: SiteHeaderProps) {
           ))}
           <div className="mt-3">
             <CtaButton
-              label="Agendar Atendimento"
+              label="Quero sair da sobrecarga"
               size="lg"
               className="w-full"
               href="#agendar"

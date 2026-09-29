@@ -1,7 +1,8 @@
 import {
-  HeartHandshake,
-  Brain,
-  Sparkles,
+  Radar,
+  LineChart,
+  Compass,
+  MessageCircle,
   Laptop,
   Home as HomeIcon,
   type LucideIcon,
@@ -10,8 +11,8 @@ import {
 export const siteConfig = {
   brand: {
     name: "Bruna Chelen",
-    role: "Psicóloga Clínica • CRP 00/00000",
-    tagline: "Terapia Cognitivo Comportamental",
+    role: "Psicóloga Comportamental • CRP 00/00000",
+    tagline: "Rota Antiburnout",
   },
   contact: {
     email: "contato@brunachelen.com.br",
@@ -22,81 +23,94 @@ export const siteConfig = {
   },
   nav: [
     { label: "Início", href: "#inicio" },
-    { label: "Como funciona", href: "#metodo" },
+    { label: "A Rota", href: "#metodo" },
     { label: "Atendimentos", href: "#atendimentos" },
     { label: "Sobre", href: "#sobre" },
     { label: "Depoimentos", href: "#depoimentos" },
     { label: "Dúvidas", href: "#faq" },
   ],
-  ctaLabel: "Agendar Atendimento",
+  // Default CTA label (used by final form + as fallback)
+  ctaLabel: "Quero começar agora",
   hero: {
-    eyebrow: "Atendimento Online e Presencial",
-    title: "A ansiedade e o esgotamento não precisam",
-    titleHighlight: "ditar a sua vida",
+    eyebrow: "Rota Antiburnout",
+    title: "Psicoterapia focada em Burnout para quem",
+    titleHighlight: "cansou de viver no limite",
     subtitle:
-      "Psicoterapia baseada em Terapia Cognitivo Comportamental (TCC) para que você retome o equilíbrio emocional, a clareza e a sensação de controle sobre a própria rotina.",
-    badges: ["Online para todo o Brasil", "Presencial no Rio de Janeiro"],
+      "Você sente um cansaço que não passa com o descanso e vive sobrecarregada? Conheça o acompanhamento terapêutico que te ajuda a sair do esgotamento sem precisar largar a sua carreira.",
+    badges: ["Para mulheres de 25 a 45 anos", "Online e presencial no Rio"],
     image: "/images/hero-bruna.png",
-    imageAlt: "Bruna Chelen, psicóloga clínica, sentada em um sofá aconchegante",
+    imageAlt: "Bruna Chelen, psicóloga, sentada em um sofá aconchegante",
+    ctaLabel: "Quero sair da sobrecarga",
+    secondaryCtaLabel: "Conhecer a Rota",
   },
   problems: {
-    eyebrow: "Por onde começamos?",
+    eyebrow: "Você no limite",
     title: "Talvez você tenha se",
     titleHighlight: "acostumado a viver com:",
+    closingText:
+      "Esses sintomas mostram que você está no limite do burnout. Mas a culpa não é sua. Existe um caminho prático para reorganizar seus padrões de comportamento e recuperar a sua energia.",
+    ctaLabel: "Quero sair da sobrecarga",
   },
   methodology: {
-    eyebrow: "A abordagem",
-    title: "Um processo terapêutico baseado em",
-    titleHighlight: "TCC (Terapia Cognitivo Comportamental)",
+    eyebrow: "A solução",
+    title: "Conheça o Acompanhamento Terapêutico",
+    titleHighlight: "Rota Antiburnout",
     intro:
-      "A TCC é uma das abordagens com maior evidência científica. Trabalha a relação entre pensamentos, emoções e comportamentos, com objetivos claros e práticos.",
+      "Um método focado na Psicologia Comportamental Baseada em Evidências para identificar a raiz da sua sobrecarga no ambiente de trabalho e construir mudanças práticas.",
+    ctaLabel: "Quero conhecer a Rota Antiburnout",
   },
   value: {
-    eyebrow: "O que você vai encontrar",
-    title: "Iniciar terapia pode gerar dúvidas. Minha proposta é que você tenha:",
-    titleHighlight: "",
+    eyebrow: "O que você alcança",
+    title: "Iniciar a Rota Antiburnout vai transformar a sua rotina. Minha proposta é que você",
+    titleHighlight: "alcance:",
     image: "/images/about-bruna.png",
     imageAlt: "Bruna Chelen sentada em uma poltrona, ambiente acolhedor",
+    ctaLabel: "Agendar minha primeira sessão",
   },
   logistics: {
     eyebrow: "Atendimentos",
     title: "Como funcionam os",
     titleHighlight: "atendimentos",
+    ctaLabel: "Quero conhecer a Rota Antiburnout",
   },
   about: {
-    eyebrow: "Quem irá lhe ajudar",
-    title: "Uma jornada construída com",
-    titleHighlight: "presença, escuta e técnica",
+    eyebrow: "Sua guia",
+    title: "Quem irá te guiar",
+    titleHighlight: "nesta Rota?",
     paragraphs: [
-      "Sou Bruna Chelen, psicóloga clínica formada pela UFRJ, com especialização em Terapia Cognitivo Comportamental. Atuo no tratamento de ansiedade, estresse crônico, esgotamento e dificuldades emocionais do dia a dia.",
-      "Acredito em um espaço terapêutico seguro, livre de julgamentos, onde cada pessoa possa compreender seus padrões, desenvolver habilidades emocionais e construir uma relação mais saudável consigo mesma.",
+      "Sou a Bruna Chelen, psicóloga especialista em Psicologia Comportamental. Meu foco é ajudar mulheres de 25 a 45 anos que estão no limite do esgotamento e do burnout a recuperarem o controle de suas vidas.",
+      "Trabalho com práticas baseadas em evidências para te ajudar a identificar a raiz da sua sobrecarga no trabalho e construir uma rotina mais leve e sustentável. Você não precisa largar a sua profissão para ter paz, você só precisa das ferramentas certas para reorganizar a sua rota.",
     ],
     credentials: [
-      "Graduação em Psicologia pela UFRJ",
-      "Pós-graduação em TCC",
-      "Atendimento online e presencial",
-      "Foco em regulação emocional",
+      "Psicologia Comportamental",
+      "Foco em Burnout",
+      "Mulheres 25-45 anos",
+      "Online e Presencial",
     ],
     image: "/images/about-bruna.png",
     profileImage: "/images/profile-bruna.png",
     name: "Bruna Chelen",
-    role: "Psicóloga Clínica • CRP 00/00000",
+    role: "Psicóloga Comportamental • CRP 00/00000",
+    ctaLabel: "Falar com a Bruna no WhatsApp",
+    whatsappUrl: "https://wa.me/5521900000000",
   },
   testimonials: {
     eyebrow: "Quem já começou",
-    title: "O que dizem as pessoas que",
-    titleHighlight: "decidiram começar",
+    title: "O que dizem as mulheres que",
+    titleHighlight: "decidiram sair da sobrecarga",
   },
   faq: {
     eyebrow: "Dúvidas comuns",
     title: "Perguntas",
     titleHighlight: "Frequentes",
+    ctaLabel: "Quero sair da sobrecarga",
   },
   finalCta: {
-    title: "O primeiro passo é o mais importante.",
-    titleHighlight: "Vamos dar esse passo juntos?",
+    title: "O primeiro passo para sair da sobrecarga",
+    titleHighlight: "começa agora.",
     subtitle:
-      "Agende sua conversa inicial sem compromisso. Será um espaço para você se apresentar e tirar dúvidas sobre o processo.",
+      "Agende sua primeira sessão da Rota Antiburnout. Um espaço para entender sua rotina, mapear seus gatilhos e construir um caminho prático de volta para a sua energia.",
+    ctaLabel: "Quero começar agora",
   },
 };
 
@@ -109,23 +123,23 @@ export const problems: {
   {
     image: "/images/problem-burnout.png",
     alt: "Homem exausto trabalhando tarde da noite no laptop",
-    title: "Esgotamento e cansaço constante",
+    title: "Cansaço constante",
     description:
-      "A sensação de que a energia nunca é suficiente, dias que se repetem e a dificuldade de desligar mesmo quando seria hora de descansar.",
+      "Um cansaço profundo que não passa, mesmo após uma noite inteira de sono ou um final de semana de descanso.",
   },
   {
     image: "/images/problem-anxiety.png",
     alt: "Mulher deitada na cama com expressão preocupada",
-    title: "Ansiedade e dificuldade para dormir",
+    title: "Sobrecarga diária",
     description:
-      "Pensamentos acelerados à noite, preocupação antecipada e aquela sensação de que algo precisa ser resolvido o tempo todo.",
+      "Uma sensação de estar sempre devendo algo no trabalho ou na vida pessoal, como se a lista nunca acabasse.",
   },
   {
     image: "/images/problem-sadness.png",
     alt: "Homem sentado na beira da cama com as mãos na cabeça",
-    title: "Tristeza e sensação de peso",
+    title: "Culpa ao relaxar",
     description:
-      "Dias em que tudo parece difícil, motivação que oscila e a impressão de estar distante de si mesmo e das pessoas ao redor.",
+      "Uma culpa paralisante até mesmo na hora de relaxar, como se você não tivesse o direito de fazer uma pausa.",
   },
 ];
 
@@ -135,45 +149,45 @@ export const methodology: {
   description: string;
 }[] = [
   {
-    icon: HeartHandshake,
-    title: "Compreensão inicial",
+    icon: Radar,
+    title: "Gatilhos Invisíveis",
     description:
-      "Um espaço para entender seu momento, sua história e os padrões que se repetem. Aqui construímos um vínculo seguro e sem julgamentos.",
+      "Mapeamos os gatilhos da sua rotina para entender exatamente o que está drenando a sua energia e causando o esgotamento.",
   },
   {
-    icon: Brain,
-    title: "Plano terapêutico personalizado",
+    icon: LineChart,
+    title: "Ciclos Mensuráveis",
     description:
-      "Definimos juntos objetivos claros e alcançáveis, organizando o processo em etapas que fazem sentido para a sua realidade.",
+      "Trabalhamos com ciclos práticos de 4 sessões, onde você consegue enxergar a sua evolução e reorganizar seus padrões passo a passo.",
   },
   {
-    icon: Sparkles,
-    title: "Desenvolvimento de habilidades",
+    icon: Compass,
+    title: "Mudanças Práticas",
     description:
-      "Reconhecer pensamentos automáticos, regular emoções e praticar novos comportamentos no dia a dia. Você ganha autonomia emocional.",
+      "Você aprende a colocar limites e gerenciar o estresse para recuperar sua qualidade de vida, sem precisar abandonar a sua carreira.",
   },
 ];
 
 export const valueProps: { title: string; description: string }[] = [
   {
-    title: "Um espaço seguro e sem julgamentos",
+    title: "Descanso sem culpa",
     description:
-      "Um ambiente acolhedor onde você pode falar sobre qualquer tema, no seu tempo, sem medo de avaliação.",
+      "Aprender a se desconectar de verdade ao final do dia e aproveitar seus momentos de lazer.",
   },
   {
-    title: "Estratégias baseadas em evidência",
+    title: "Clareza e Limites",
     description:
-      "Ferramentas práticas da TCC que ajudam a entender padrões e construir mudanças reais e sustentáveis.",
+      "Saber dizer 'não' de forma estratégica e lidar com as exigências do ambiente de trabalho sem absorver tudo.",
   },
   {
-    title: "Foco em autonomia emocional",
+    title: "Evolução visível",
     description:
-      "Você aprende a reconhecer emoções, regular reações e tomar decisões mais alinhadas com o que importa para você.",
+      "Diferente de terapias sem foco, nosso acompanhamento é guiado para resultados práticos na sua realidade.",
   },
   {
-    title: "Atendimento flexível e próximo",
+    title: "Autonomia emocional",
     description:
-      "Sessões online para o Brasil e presenciais no Rio de Janeiro, com horários pensados para caber na sua rotina.",
+      "Ferramentas validadas cientificamente para você dominar a ansiedade e não deixar que o estresse dite a sua vida.",
   },
 ];
 
@@ -188,7 +202,7 @@ export const logistics: {
     icon: Laptop,
     title: "Atendimentos Online",
     description:
-      "Sessões por videochamada, com a mesma estrutura e qualidade do atendimento presencial. Acesso de qualquer lugar com privacidade.",
+      "Sessões por videochamada com a mesma estrutura e qualidade do atendimento presencial. Acesso de qualquer lugar com privacidade.",
     highlights: [
       "Para todo o Brasil e exterior",
       "Plataforma segura e sigilosa",
@@ -201,11 +215,7 @@ export const logistics: {
     title: "Atendimentos Presenciais",
     description:
       "Encontros em consultório, em ambiente preparado para a sua comodidade. No Rio de Janeiro, com fácil acesso.",
-    highlights: [
-      "Botafogo - RJ",
-      "Tijuca - RJ",
-      "Ambiente acolhedor",
-    ],
+    highlights: ["Botafogo - RJ", "Tijuca - RJ", "Ambiente acolhedor"],
     badge: "Rio de Janeiro",
   },
 ];
@@ -223,7 +233,7 @@ export const testimonials: {
     initials: "MA",
     date: "Março / 2025",
     rating: 5,
-    text: "Comecei a terapia sem saber o que esperar. Em poucas sessões já dormia melhor e entendia meus ciclos de ansiedade. A Bruna tem uma escuta muito cuidadosa.",
+    text: "Cheguei à exaustão total do trabalho. A Rota Antiburnout me ajudou a enxergar meus gatilhos e, pela primeira vez, consegui descansar sem culpa. Minha rotina hoje é outra.",
     accent: "bg-rose-200 text-rose-800",
   },
   {
@@ -231,7 +241,7 @@ export const testimonials: {
     initials: "RT",
     date: "Janeiro / 2025",
     rating: 5,
-    text: "Cheguei esgotado do trabalho. As ferramentas práticas da TCC me ajudaram a colocar limites reais e a recuperar energia. Mudou minha relação com o descanso.",
+    text: "A terapia foi muito prática. Em poucos ciclos de 4 sessões eu já sentia evolução visível e tinha ferramentas reais para colocar limites no trabalho.",
     accent: "bg-emerald-200 text-emerald-800",
   },
   {
@@ -239,20 +249,30 @@ export const testimonials: {
     initials: "CR",
     date: "Novembro / 2024",
     rating: 5,
-    text: "Atendimento online no meu horário de almoço. Prático, sério e humano. Me sinto muito mais no controle das minhas emoções depois de alguns meses.",
+    text: "Eu achava que descansar era perda de tempo. Hoje consigo me desconectar ao final do dia e minha vida pessoal voltou a existir de verdade.",
     accent: "bg-amber-200 text-amber-800",
   },
   {
-    name: "João P.",
+    name: "Joana P.",
     initials: "JP",
     date: "Setembro / 2024",
     rating: 5,
-    text: "Sem julgamentos, com método. A combinação perfeita para mim. As sessões presenciais no Rio são em um espaço muito acolhedor.",
+    text: "Não precisei largar minha carreira para ter paz. Aprendi a dizer não de forma estratégica e a organizar meus padrões. O método é guiado e faz sentido.",
     accent: "bg-rose-200 text-rose-800",
   },
 ];
 
 export const faqs: { question: string; answer: string }[] = [
+  {
+    question: "Como funcionam os ciclos de 4 sessões?",
+    answer:
+      "A Rota Antiburnout é desenhada para ser prática. A cada 4 sessões, nós reavaliamos seus padrões de comportamento e os gatilhos mapeados, garantindo que você tenha clareza do seu progresso no alívio da sobrecarga.",
+  },
+  {
+    question: "Qual a sua abordagem?",
+    answer:
+      "Trabalho com Psicologia Comportamental Baseada em Evidências por meio da Rota Antiburnout, um método focado em identificar a raiz da sua sobrecarga no trabalho e construir mudanças práticas para recuperar sua energia.",
+  },
   {
     question: "Você aceita plano de saúde?",
     answer:
@@ -264,19 +284,14 @@ export const faqs: { question: string; answer: string }[] = [
       "Cada sessão tem duração aproximada de 50 minutos, com frequência semanal na maioria dos casos. O ritmo é definido em conjunto, de acordo com a sua necessidade.",
   },
   {
-    question: "Qual a sua abordagem?",
+    question: "Como é a primeira sessão?",
     answer:
-      "Trabalho com a Terapia Cognitivo Comportamental (TCC), uma abordagem com forte base científica, focada na relação entre pensamentos, emoções e comportamentos, com objetivos claros e práticos.",
-  },
-  {
-    question: "Como é a conversa inicial?",
-    answer:
-      "A conversa inicial é o momento de você se apresentar, contar um pouco sobre o que está sentindo e tirar dúvidas. É um espaço sem compromisso, no qual definimos juntos se faz sentido seguirmos.",
+      "A primeira sessão é o momento de você se apresentar, contar sobre sua rotina e o que está sentindo. É um espaço sem compromisso, no qual começamos a mapear seus gatilhos e definimos juntos se faz sentido seguirmos.",
   },
   {
     question: "Como funciona o atendimento online?",
     answer:
-      "As sessões online acontecem por videochamada em plataforma segura. Você precisa apenas de um local privado e de uma boa conexão. Atendo pessoas em todo o Brasil e no exterior.",
+      "As sessões online acontecem por videochamada em plataforma segura. Você precisa apenas de um local privado e de uma boa conexão. Atendo mulheres em todo o Brasil e no exterior.",
   },
   {
     question: "Gostaria de atendimento presencial, é possível?",

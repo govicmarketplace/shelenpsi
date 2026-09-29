@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { GraduationCap, BookOpen, Video, Heart } from "lucide-react";
+import { GraduationCap, BookOpen, Video, Heart, MessageCircle } from "lucide-react";
+import CtaButton from "../cta-button";
 
 type AboutProps = {
   eyebrow: string;
@@ -12,6 +13,7 @@ type AboutProps = {
   name: string;
   role: string;
   ctaLabel: string;
+  whatsappUrl: string;
 };
 
 export default function About({
@@ -24,6 +26,8 @@ export default function About({
   profileImage,
   name,
   role,
+  ctaLabel,
+  whatsappUrl,
 }: AboutProps) {
   const icons = [GraduationCap, BookOpen, Video, Heart];
 
@@ -129,6 +133,17 @@ export default function About({
                   {role}
                 </span>
               </div>
+            </div>
+
+            <div className="mt-6">
+              <CtaButton
+                label={ctaLabel}
+                size="lg"
+                href={whatsappUrl}
+                external
+                icon={MessageCircle}
+                variant="outline"
+              />
             </div>
           </div>
         </div>

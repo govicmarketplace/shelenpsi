@@ -11,6 +11,7 @@ type HeroProps = {
   image: string;
   imageAlt: string;
   ctaLabel: string;
+  secondaryCtaLabel: string;
 };
 
 export default function Hero({
@@ -22,6 +23,7 @@ export default function Hero({
   image,
   imageAlt,
   ctaLabel,
+  secondaryCtaLabel,
 }: HeroProps) {
   return (
     <section
@@ -61,7 +63,7 @@ export default function Hero({
               href="#metodo"
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[var(--brand-rose)] px-6 py-4 text-sm font-semibold text-[var(--brand-rose-dark)] transition-colors hover:bg-[var(--brand-rose)] hover:text-white sm:text-base"
             >
-              Conhecer o método
+              {secondaryCtaLabel}
             </a>
           </div>
 
@@ -100,7 +102,7 @@ export default function Hero({
                 ))}
               </div>
               <p className="mt-0.5 text-xs text-[var(--brand-text-muted)]">
-                Pacientes que já começaram esse processo
+                Mulheres que já começaram a Rota
               </p>
             </div>
           </div>

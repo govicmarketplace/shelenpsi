@@ -16,32 +16,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bruna Chelen | Psicóloga Clínica - TCC Online e Presencial",
+  title: "Bruna Chelen | Rota Antiburnout - Psicologia Comportamental",
   description:
-    "Psicóloga clínica especialista em Terapia Cognitivo Comportamental (TCC). Atendimentos online para todo o Brasil e presenciais no Rio de Janeiro. Ansiedade e esgotamento não precisam ditar sua vida.",
+    "Psicoterapia focada em burnout para mulheres de 25 a 45 anos que cansaram de viver no limite. Acompanhamento terapêutico prático para sair da sobrecarga sem largar a sua carreira. Online e presencial no Rio de Janeiro.",
   keywords: [
-    "psicóloga",
-    "terapia",
-    "TCC",
-    "Terapia Cognitivo Comportamental",
-    "ansiedade",
     "burnout",
+    "esgotamento",
+    "sobrecarga",
+    "psicóloga",
+    "psicologia comportamental",
+    "Rota Antiburnout",
+    "terapia para mulheres",
+    "ansiedade no trabalho",
     "psicóloga Rio de Janeiro",
     "atendimento online",
     "Bruna Chelen",
   ],
   authors: [{ name: "Bruna Chelen" }],
   openGraph: {
-    title: "Bruna Chelen | Psicóloga Clínica",
+    title: "Bruna Chelen | Rota Antiburnout",
     description:
-      "Terapia Cognitivo Comportamental (TCC). Atendimentos online e presenciais no Rio de Janeiro.",
+      "Psicoterapia focada em burnout para mulheres de 25 a 45 anos. Saia da sobrecarga sem largar a sua carreira.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bruna Chelen | Psicóloga Clínica",
+    title: "Bruna Chelen | Rota Antiburnout",
     description:
-      "Terapia Cognitivo Comportamental. Online para o Brasil e presencial no Rio de Janeiro.",
+      "Psicoterapia focada em burnout. Online para o Brasil e presencial no Rio de Janeiro.",
   },
 };
 

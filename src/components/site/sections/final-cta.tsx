@@ -154,8 +154,8 @@ export default function FinalCta({
           </ul>
 
           <p className="mt-6 text-xs text-white/70">
-            Mais de {savedLeads > 0 ? savedLeads : 80} pessoas já iniciaram sua
-            conversa.
+            Mais de {savedLeads > 0 ? savedLeads : 80} mulheres já começaram a
+            Rota Antiburnout.
           </p>
         </div>
 

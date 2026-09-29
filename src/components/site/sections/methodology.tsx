@@ -76,14 +76,10 @@ export default function Methodology({
 
         <div className="mt-12 flex justify-center">
           <CtaButton
-            label="Iniciar conversa inicial"
+            label={ctaLabel}
             size="lg"
             href="#agendar"
-            showIcon={false}
-            variant="soft"
-            className="px-8 py-4"
           />
-          <span className="sr-only">{ctaLabel}</span>
         </div>
       </div>
     </section>

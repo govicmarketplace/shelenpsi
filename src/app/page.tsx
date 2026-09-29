@@ -41,14 +41,16 @@ export default async function Home() {
           badges={siteConfig.hero.badges}
           image={siteConfig.hero.image}
           imageAlt={siteConfig.hero.imageAlt}
-          ctaLabel={siteConfig.ctaLabel}
+          ctaLabel={siteConfig.hero.ctaLabel}
+          secondaryCtaLabel={siteConfig.hero.secondaryCtaLabel}
         />
         <Problems
           eyebrow={siteConfig.problems.eyebrow}
           title={siteConfig.problems.title}
           titleHighlight={siteConfig.problems.titleHighlight}
+          closingText={siteConfig.problems.closingText}
           items={problems}
-          ctaLabel={siteConfig.ctaLabel}
+          ctaLabel={siteConfig.problems.ctaLabel}
         />
         <Methodology
           eyebrow={siteConfig.methodology.eyebrow}
@@ -56,7 +58,7 @@ export default async function Home() {
           titleHighlight={siteConfig.methodology.titleHighlight}
           intro={siteConfig.methodology.intro}
           steps={methodology}
-          ctaLabel={siteConfig.ctaLabel}
+          ctaLabel={siteConfig.methodology.ctaLabel}
         />
         <ValueProposition
           eyebrow={siteConfig.value.eyebrow}
@@ -65,13 +67,13 @@ export default async function Home() {
           items={valueProps}
           image={siteConfig.value.image}
           imageAlt={siteConfig.value.imageAlt}
-          ctaLabel={siteConfig.ctaLabel}
+          ctaLabel={siteConfig.value.ctaLabel}
         />
         <Logistics
           eyebrow={siteConfig.logistics.eyebrow}
           title={siteConfig.logistics.title}
           items={logistics}
-          ctaLabel={siteConfig.ctaLabel}
+          ctaLabel={siteConfig.logistics.ctaLabel}
         />
         <About
           eyebrow={siteConfig.about.eyebrow}
@@ -83,7 +85,8 @@ export default async function Home() {
           profileImage={siteConfig.about.profileImage}
           name={siteConfig.about.name}
           role={siteConfig.about.role}
-          ctaLabel={siteConfig.ctaLabel}
+          ctaLabel={siteConfig.about.ctaLabel}
+          whatsappUrl={siteConfig.about.whatsappUrl}
         />
         <Testimonials
           eyebrow={siteConfig.testimonials.eyebrow}
@@ -96,13 +99,13 @@ export default async function Home() {
           title={siteConfig.faq.title}
           titleHighlight={siteConfig.faq.titleHighlight}
           items={faqs}
-          ctaLabel={siteConfig.ctaLabel}
+          ctaLabel={siteConfig.faq.ctaLabel}
         />
         <FinalCta
           title={siteConfig.finalCta.title}
           titleHighlight={siteConfig.finalCta.titleHighlight}
           subtitle={siteConfig.finalCta.subtitle}
-          ctaLabel={siteConfig.ctaLabel}
+          ctaLabel={siteConfig.finalCta.ctaLabel}
           contact={siteConfig.contact}
           savedLeads={savedLeads}
         />

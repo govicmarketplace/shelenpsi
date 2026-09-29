@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
+import CtaButton from "../cta-button";
 
 type ValuePropositionProps = {
   eyebrow: string;
@@ -18,6 +19,7 @@ export default function ValueProposition({
   items,
   image,
   imageAlt,
+  ctaLabel,
 }: ValuePropositionProps) {
   return (
     <section
@@ -86,6 +88,10 @@ export default function ValueProposition({
               </li>
             ))}
           </ul>
+
+          <div className="mt-8">
+            <CtaButton label={ctaLabel} size="lg" href="#agendar" />
+          </div>
         </div>
       </div>
     </section>

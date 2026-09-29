@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "Here is the verification of the landing page based on your requirements:\n\n1.  **Hero Text:** **Yes**. The hero section correctly displays the headline: *\"Psicoterapia focada em Burnout para quem cansou de viver no limite\"*.\n2.  **Methodology Blocks:** **Yes**. The three blocks under \"Conheça o Acompanhamento Terapêutico\" are visible with the exact titles:\n    *   *Gatilhos Invisíveis*\n    *   *Ciclos Mensuráveis*\n    *   *Mudanças Práticas*\n3.  **WhatsApp CTA (About Section):** **Yes**. In the section \"Quem irá te guiar nesta Rota?\", there is a button labeled: *\"Falar com a Bruna no WhatsApp\"*.\n4.  **Layout & Visuals:**\n    *   **No broken CTAs or text overflow detected.**\n    *   The layout is clean, responsive, and well-structured with consistent spacing and typography.\n    *   All interactive elements (buttons, accordions) appear to be in place.\n\n**Conclusion:** The page renders correctly according to all specified criteria.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790720642,
+  "id": "20260930062354db86fae746854643",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20260930062354db86fae746854643",
+  "usage": {
+    "completion_tokens": 247,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 5738,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 5985
+  }
+}

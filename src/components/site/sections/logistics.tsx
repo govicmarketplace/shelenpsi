@@ -117,10 +117,11 @@ export default function Logistics({
 
         <div className="mx-auto mt-12 max-w-2xl rounded-3xl border border-[var(--brand-beige-dark)] bg-[var(--brand-beige)] p-6 text-center sm:p-8">
           <p className="text-sm leading-relaxed text-[var(--brand-text)] sm:text-base">
-            <span className="font-semibold">Não sabe por onde começar?</span>{" "}
+            <span className="font-semibold">Não sabe qual formato escolher?</span>{" "}
             <span className="text-[var(--brand-text-muted)]">
-              A conversa inicial serve justamente para isso &mdash; entender seu
-              momento e escolher o formato ideal para você.
+              A primeira sessão da Rota Antiburnout serve justamente para isso
+              &mdash; mapear seus gatilhos e escolher o formato ideal para a sua
+              realidade.
             </span>
           </p>
           <div className="mt-5 flex justify-center">

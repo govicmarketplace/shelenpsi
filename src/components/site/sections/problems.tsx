@@ -6,6 +6,7 @@ type ProblemsProps = {
   eyebrow: string;
   title: string;
   titleHighlight: string;
+  closingText: string;
   items: { image: string; alt: string; title: string; description: string }[];
   ctaLabel: string;
 };
@@ -14,6 +15,7 @@ export default function Problems({
   eyebrow,
   title,
   titleHighlight,
+  closingText,
   items,
   ctaLabel,
 }: ProblemsProps) {
@@ -60,12 +62,13 @@ export default function Problems({
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-4 text-center">
-          <p className="max-w-xl text-sm leading-relaxed text-[var(--brand-text-muted)]">
-            Se algum desses pontos soa familiar, pode ser o momento de
-            construir um caminho diferente. A terapia é um espaço para isso.
+        <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-[var(--brand-rose-light)] bg-white p-6 text-center shadow-sm sm:p-8">
+          <p className="text-sm leading-relaxed text-[var(--brand-text)] sm:text-base">
+            {closingText}
           </p>
-          <CtaButton label={ctaLabel} size="lg" href="#agendar" />
+          <div className="mt-6 flex justify-center">
+            <CtaButton label={ctaLabel} size="lg" href="#agendar" />
+          </div>
         </div>
       </div>
     </section>
