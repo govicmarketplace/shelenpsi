@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import ScrollReveal from "@/components/site/scroll-reveal";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -58,7 +59,12 @@ export default function RootLayout({
         className={`${montserrat.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         {children}
+        <ScrollReveal />
         <Toaster />
+        {/* Fallback for users with JS disabled: reveal everything immediately */}
+        <noscript>
+          <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
       </body>
     </html>
   );

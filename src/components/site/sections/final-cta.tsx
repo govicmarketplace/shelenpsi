@@ -103,7 +103,7 @@ export default function FinalCta({
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
         {/* Copy + info */}
-        <div className="text-white">
+        <div className="reveal text-white">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
             <CalendarHeart className="h-3.5 w-3.5" />
             Conversa inicial
@@ -157,7 +157,7 @@ export default function FinalCta({
         </div>
 
         {/* Form card */}
-        <div className="rounded-3xl border border-white/40 bg-white/95 p-6 shadow-2xl backdrop-blur sm:p-8">
+        <div className="reveal delay-200 rounded-3xl border border-white/40 bg-white/95 p-6 shadow-2xl backdrop-blur sm:p-8">
           {status === "success" ? (
             <div className="flex flex-col items-center py-8 text-center">
               <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--brand-green)]/15 text-[var(--brand-green-dark)]">

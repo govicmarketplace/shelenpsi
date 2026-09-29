@@ -43,7 +43,7 @@ export default function Logistics({
             return (
               <article
                 key={item.title}
-                className={`group relative flex flex-col overflow-hidden rounded-3xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:p-9 ${
+                className={`reveal delay-${(idx + 1) * 100} group relative flex flex-col overflow-hidden rounded-3xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:p-9 ${
                   isOnline
                     ? "border-[var(--brand-rose-light)] bg-gradient-to-br from-[var(--brand-beige)] to-white"
                     : "border-[var(--brand-beige-dark)] bg-white"

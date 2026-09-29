@@ -43,10 +43,10 @@ export default function Testimonials({
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2 lg:gap-8">
-          {items.map((t) => (
+          {items.map((t, idx) => (
             <article
               key={t.name}
-              className="group relative flex flex-col rounded-3xl border border-[var(--brand-beige-dark)] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-8"
+              className={`reveal delay-${(idx % 2 === 0 ? 1 : 2) * 100} group relative flex flex-col rounded-3xl border border-[var(--brand-beige-dark)] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-8`}
             >
               <Quote
                 className="absolute right-6 top-6 h-10 w-10 text-[var(--brand-rose-light)] transition-colors duration-300 group-hover:text-[var(--brand-rose)]"

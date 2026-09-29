@@ -37,7 +37,7 @@ export default function Faq({
           titleHighlight={titleHighlight}
         />
 
-        <div className="mt-12 rounded-3xl border border-[var(--brand-beige-dark)] bg-white p-4 shadow-sm sm:p-6 lg:p-8">
+        <div className="reveal mt-12 rounded-3xl border border-[var(--brand-beige-dark)] bg-white p-4 shadow-sm sm:p-6 lg:p-8">
           <Accordion type="single" collapsible className="w-full">
             {items.map((item, idx) => (
               <AccordionItem
@@ -59,7 +59,7 @@ export default function Faq({
           </Accordion>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-4 rounded-3xl bg-white p-6 text-center shadow-sm sm:flex-row sm:justify-between sm:text-left">
+        <div className="reveal mt-10 flex flex-col items-center gap-4 rounded-3xl bg-white p-6 text-center shadow-sm sm:flex-row sm:justify-between sm:text-left">
           <div>
             <h3 className="text-lg font-bold text-[var(--brand-text)]">
               Ainda com dúvidas?

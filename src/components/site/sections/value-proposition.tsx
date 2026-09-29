@@ -28,7 +28,7 @@ export default function ValueProposition({
     >
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
         {/* Image side */}
-        <div className="relative order-last lg:order-first">
+        <div className="reveal relative order-last lg:order-first">
           <div className="relative mx-auto max-w-md lg:max-w-none">
             <div className="absolute -left-4 -top-4 -z-10 h-32 w-32 rounded-full bg-[var(--brand-rose-light)]/60 blur-2xl" />
             <div className="absolute -bottom-4 -right-4 -z-10 h-40 w-40 rounded-full bg-[var(--brand-rose)]/15 blur-2xl" />
@@ -69,10 +69,10 @@ export default function ValueProposition({
           </h2>
 
           <ul className="mt-8 space-y-5">
-            {items.map((item) => (
+            {items.map((item, idx) => (
               <li
                 key={item.title}
-                className="flex items-start gap-4 rounded-2xl border border-[var(--brand-beige-dark)] bg-white/70 p-4 transition-colors hover:border-[var(--brand-rose-light)] hover:bg-white"
+                className={`reveal delay-${(idx + 1) * 100} flex items-start gap-4 rounded-2xl border border-[var(--brand-beige-dark)] bg-white/70 p-4 transition-colors hover:border-[var(--brand-rose-light)] hover:bg-white`}
               >
                 <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--brand-green)]/15 text-[var(--brand-green-dark)]">
                   <Check className="h-4 w-4" />

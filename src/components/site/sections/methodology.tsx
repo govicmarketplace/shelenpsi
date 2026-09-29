@@ -32,7 +32,7 @@ export default function Methodology({
           titleHighlight={titleHighlight}
         />
 
-        <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-[var(--brand-text-muted)] sm:text-lg">
+        <p className="reveal mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-[var(--brand-text-muted)] sm:text-lg">
           {intro}
         </p>
 
@@ -42,7 +42,7 @@ export default function Methodology({
             return (
               <article
                 key={step.title}
-                className="group relative flex flex-col rounded-3xl border border-[var(--brand-beige-dark)] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--brand-rose-light)] hover:shadow-xl lg:p-8"
+                className={`reveal delay-${(idx + 1) * 100} group relative flex flex-col rounded-3xl border border-[var(--brand-beige-dark)] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--brand-rose-light)] hover:shadow-xl lg:p-8`}
               >
                 {/* Step connector */}
                 {idx < steps.length - 1 ? (

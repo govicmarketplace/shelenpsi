@@ -202,3 +202,57 @@ Stage Summary:
 - Componente WhatsAppIcon reutilizável criado (usado no About CTA + floating button).
 - Telefone/WhatsApp consistente em todo o site (5534925308688).
 - Lint limpo, sem erros, tudo verificado no browser.
+
+---
+Task ID: 5
+Agent: main (Z.ai Code)
+Task: Criar efeito de animação Scroll Reveal (fade in + slide up) aplicável via classe .reveal em qualquer elemento, com suporte a atraso (stagger) via .delay-100, .delay-200 etc.
+
+Work Log:
+- Adicionei ao src/app/globals.css o sistema completo de Scroll Reveal:
+  - `.reveal` { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; will-change: opacity, transform; }
+  - `.reveal.is-visible` { opacity: 1; transform: translateY(0); } (estado final quando o elemento entra no viewport)
+  - Delays com escopo `.reveal` (maior especificidade, sem conflito com Tailwind): .delay-100 (0.1s), .delay-200 (0.2s), .delay-300 (0.3s), .delay-400 (0.4s), .delay-500 (0.5s), .delay-700 (0.7s)
+  - @media (prefers-reduced-motion: reduce) → força opacity:1 + transform:none + transition:none (acessibilidade).
+- Criei src/components/site/scroll-reveal.tsx (client component "renderless" — retorna null):
+  - useEffect no mount: cria IntersectionObserver com threshold 0.15 e rootMargin "0px 0px -8% 0px" (dispara quando 15% do elemento está visível, ligeiramente antes de fully in view).
+  - Quando um `.reveal` entra no viewport → adiciona `.is-visible` e faz unobserve (anima só uma vez, não reseta ao rolar de volta).
+  - Função scan() observa todos os `.reveal:not(.is-visible)`; chamada no mount.
+  - MutationObserver no body (childList + subtree) → re-scan quando novos `.reveal` são adicionados ao DOM (cobre re-renders client-side).
+  - Fallback: se IntersectionObserver não existe ou prefers-reduced-motion, revela tudo imediatamente.
+  - Cleanup: disconnect dos 2 observers no unmount.
+- Atualizei src/app/layout.tsx:
+  - Importei e adicionei <ScrollReveal /> dentro do <body> (depois de children) — roda globalmente uma única vez.
+  - Adicionei <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript> como fallback para usuários sem JS (conteúdo não fica invisível).
+- Apliquei `.reveal` (+ delays de stagger) nos elementos-chave de cada seção:
+  - SectionHeading (componente compartilhado): `.reveal` na raiz → todos os títulos de seção animam.
+  - Hero: H1 (reveal), subtitle (delay-100), grupo de CTAs (delay-200), badges (delay-300), mini social proof (delay-500), imagem (delay-200). Cascata suave na entrada.
+  - Problems: 3 cards com `reveal delay-${(i+1)*100}` (100/200/300ms stagger); closing text card com `.reveal`.
+  - Methodology: intro com `.reveal`; 3 step cards com `reveal delay-${(idx+1)*100}` (stagger).
+  - Value Proposition: imagem com `.reveal`; 4 benefit items com `reveal delay-${(idx+1)*100}` (stagger).
+  - Logistics: 2 cards com `reveal delay-${(idx+1)*100}` (stagger).
+  - About: imagem com `.reveal`; eyebrow (reveal), título (delay-100), parágrafos (delay-200), 4 credentials com `reveal delay-${(idx+1)*100}` (stagger), name card (delay-400), WhatsApp CTA (delay-500). Cascata completa do topo ao CTA.
+  - Testimonials: 4 cards com `reveal delay-${idx%2===0?1:2 * 100}` (stagger 100/200 alternando, por coluna do grid 2x2).
+  - FAQ: container do Accordion com `.reveal`; card "Ainda com dúvidas?" com `.reveal`.
+  - Final CTA: coluna copy com `.reveal`; form card com `reveal delay-200`.
+- Lint: bun run lint → limpo.
+- Verificação com agent-browser:
+  - Página carrega com 44 elementos `.reveal` no DOM.
+  - No load: 6 elementos do hero (que estão no viewport) receberam `.is-visible` imediatamente.
+  - Após scroll down 600px: 4 elementos do problems section revelados (heading + 3 cards stagger).
+  - Após scroll to bottom: todos os 44 elementos com `.is-visible` (0 restantes escondidos).
+  - Após scroll back to top: 44 ainda visíveis (animação é one-way, não reset — comportamento correto).
+  - Sem erros de console/runtime.
+  - VLM final: "page renders fully with all content visible, no blank sections, layout intact".
+
+Stage Summary:
+- Sistema de Scroll Reveal completo e reutilizável:
+  - Classe `.reveal` aplicável em qualquer elemento HTML (basta adicionar a classe).
+  - Animação: opacity 0→1 + translateY(30px→0), duração 0.6s, ease-out.
+  - Stagger: classes `.delay-100` a `.delay-700` para entrada em cascata de cards lado a lado.
+  - Dispara quando o elemento entra no viewport (IntersectionObserver, threshold 15%).
+  - Anima apenas uma vez (não repete ao rolar de volta).
+  - Acessível: respeita prefers-reduced-motion; tem fallback <noscript> para usuários sem JS.
+  - MutationObserver pega elementos adicionados dinamicamente.
+- Aplicado em ~44 elementos: títulos, cards, imagens, blocos de texto, CTAs em todas as seções.
+- Lint limpo, sem erros, verificado no browser com scroll real.

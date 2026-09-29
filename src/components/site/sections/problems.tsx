@@ -35,7 +35,7 @@ export default function Problems({
           {items.map((item, i) => (
             <article
               key={item.title}
-              className="group relative overflow-hidden rounded-3xl border border-[var(--brand-beige-dark)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className={`reveal delay-${(i + 1) * 100} group relative overflow-hidden rounded-3xl border border-[var(--brand-beige-dark)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
             >
               <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
@@ -62,7 +62,7 @@ export default function Problems({
           ))}
         </div>
 
-        <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-[var(--brand-rose-light)] bg-white p-6 text-center shadow-sm sm:p-8">
+        <div className="reveal mx-auto mt-12 max-w-3xl rounded-3xl border border-[var(--brand-rose-light)] bg-white p-6 text-center shadow-sm sm:p-8">
           <p className="text-sm leading-relaxed text-[var(--brand-text)] sm:text-base">
             {closingText}
           </p>
