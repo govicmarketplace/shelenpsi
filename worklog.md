@@ -451,3 +451,34 @@ Stage Summary:
 - FORMAÇÃO, biografia, 4 cards de destaques e botão do WhatsApp mantidos intactos.
 - Número do WhatsApp padronizado para 553492530868 em todo o site (correção de bug).
 - Lint limpo, verificado no browser.
+
+---
+Task ID: 15
+Agent: main (Z.ai Code)
+Task: Adicionar o código do Meta Pixel (ID 1120705677140263) ao projeto usando next/script com strategy="afterInteractive" para rastrear PageView em todas as páginas sem quebrar a hidratação do React.
+
+Work Log:
+- Adicionei `import Script from "next/script";` ao layout.tsx.
+- Adicionei o Meta Pixel no <body> do layout (depois de <Toaster />), usando:
+  - `<Script id="meta-pixel" strategy="afterInteractive">` com o código completo do pixel:
+    - Função anônima IIFE que carrega fbevents.js
+    - fbq('init', '1120705677140263')
+    - fbq('track', 'PageView')
+  - `<noscript dangerouslySetInnerHTML={{__html: '<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1120705677140263&ev=PageView&noscript=1" />'}} />` (fallback para usuários sem JS).
+- Escolha de strategy="afterInteractive": o script carrega APÓS a hidratação do React, então nunca causa erro de hydration mismatch. É a estratégia recomendada pelo Next.js para scripts de analytics como Meta Pixel.
+- Lint: bun run lint → limpo.
+- Verificação com agent-browser:
+  - window.fbq = "function" (SDK do Meta Pixel carregado) ✓.
+  - fbq.version = "2.9.414" (pixel inicializado) ✓.
+  - Script fbevents.js carregado de https://connect.facebook.net/en_US/fbevents.js ✓.
+  - HTML contém fbq('init', '1120705677140263') e fbq('track', 'PageView') ✓.
+  - HTML contém o noscript img com a URL de tracking (facebook.com/tr?id=1120705677140263&ev=PageView&noscript=1) ✓.
+  - Console: sem erros, sem warnings de hydration ✓.
+  - Page errors: vazio ✓.
+
+Stage Summary:
+- Meta Pixel (ID 1120705677140263) adicionado ao layout global via next/script com strategy="afterInteractive".
+- Rastreia PageView automaticamente em todas as páginas (site de rota única /).
+- Noscript fallback incluído para usuários sem JS.
+- Não quebra a hidratação do React (afterInteractive carrega após hydration).
+- Lint limpo, sem erros de console, verificado no browser.
