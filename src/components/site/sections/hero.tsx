@@ -126,7 +126,7 @@ export default function Hero({
                   Presencial
                 </span>
                 <span className="text-sm font-semibold text-[var(--brand-text)]">
-                  Rio de Janeiro
+                  Uberlândia
                 </span>
               </div>
             </div>

@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "1. **Yes**, there is a professional woman's photo on the right.\n2. **Yes**, there are two floating badges: \"ONLINE / Brasil & Mundo\" and \"PRESENCIAL / Uberlândia\".",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1791037726,
+  "id": "20261003222845f5a22610cad844e0",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20261003222845f5a22610cad844e0",
+  "usage": {
+    "completion_tokens": 48,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1726,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1774
+  }
+}

@@ -338,3 +338,28 @@ Stage Summary:
 - Tags mantidas ao redor da imagem: "Online (Brasil & Mundo)" e "Presencial (Rio de Janeiro)".
 - Erro de hidratação RESOLVIDO: adicionei `suppressHydrationWarning` nos elementos `.reveal` do hero + no SectionHeading (compartilhado), e mudei o ScrollReveal para `useEffect` (mutação DOM após mount/paint, separada da hidratação). Aninhamento HTML do H1 verificado (válido).
 - Lint limpo, sem erros de console, verificado no browser.
+
+---
+Task ID: 11
+Agent: main (Z.ai Code)
+Task: Substituir a foto do hero pela nova foto anexada (Screenshot_2.png) + manter layout/botões/tags + alterar badge "Presencial" de "Rio de Janeiro" para "Uberlândia".
+
+Work Log:
+- Verifiquei se a foto anexada (Screenshot_2.png) era diferente da atual:
+  - MD5 de /public/images/shelen-hero.jpg: de1f4dcae5b0552e73e4c0e263b962fb
+  - MD5 de /upload/Screenshot_2.png: de1f4dcae5b0552e73e4c0e263b962fb
+  - Arquivos idênticos → a foto do hero já é a Screenshot_2.png (colocada na tarefa anterior). Nenhuma substituição necessária — a foto já está correta.
+- Alterei o texto do badge Presencial no hero (hero.tsx linha 129): "Rio de Janeiro" → "Uberlândia".
+  - Badge Online permanece "Brasil & Mundo" ✓.
+  - Badge Presencial agora "Uberlândia" ✓.
+- Lint: bun run lint → limpo.
+- Verificação com agent-browser:
+  - Hero tags: "Uberlândia" (Presencial) + "Brasil & Mundo" (Online) ✓.
+  - Hero photo: shelen-hero.jpg (a foto anexada) ✓.
+  - VLM: confirma foto da profissional + dois badges (ONLINE/Brasil & Mundo e PRESENCIAL/Uberlândia) ✓.
+
+Stage Summary:
+- Foto do hero já era a Screenshot_2.png (verificado por MD5 — idêntica à anexada), nenhuma troca necessária.
+- Badge "Presencial" alterado de "Rio de Janeiro" → "Uberlândia".
+- Badge "Online" mantido "Brasil & Mundo".
+- Lint limpo, verificado no browser.
