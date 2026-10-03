@@ -73,7 +73,6 @@ export default async function Home() {
           credentials={siteConfig.about.credentials}
           education={siteConfig.about.education}
           image={siteConfig.about.image}
-          profileImage={siteConfig.about.profileImage}
           name={siteConfig.about.name}
           role={siteConfig.about.role}
           ctaLabel={siteConfig.about.ctaLabel}

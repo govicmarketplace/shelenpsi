@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "1) Yes, there is a large photo of a professional woman without a small circular avatar overlapping the top-left corner.\n2) Yes, there is a 'FORMAÇÃO' card at the bottom of the photo with education info.\n3) Yes, the bio text is present.\n4) Yes, there are 4 credential cards.\n5) Yes, there is a WhatsApp button.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1791038952,
+  "id": "202610032249100861101f43474b6c",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202610032249100861101f43474b6c",
+  "usage": {
+    "completion_tokens": 79,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1756,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 1835
+  }
+}

@@ -413,3 +413,41 @@ Stage Summary:
 - Componente <Image> do Hero (hero.tsx) atualizado via site-content.ts (hero.image) para usar "/images/shelen-psi-burnout2.png".
 - Tags (Online/Brasil & Mundo, Presencial/Uberlândia) e botões (Quero sair da sobrecarga, Conhecer a Rota) mantidos intactos.
 - Lint limpo, verificado no browser.
+
+---
+Task ID: 14
+Agent: main (Z.ai Code)
+Task: Atualizar seção "Quem irá te guiar nesta Rota?": remover avatar circular, substituir foto principal por nova foto anexada (b-psicologa-shelen-santos.jpeg), manter FORMAÇÃO/bio/4 cards/botão WhatsApp intactos.
+
+Work Log:
+- Verifiquei a nova foto: /upload/b-psicologa-shelen-santos.jpeg (1066x1600 retrato, JPEG, MD5 526afaec4b48f7a555b6f42fecf06657 — genuinamente diferente da foto anterior do about).
+- VLM: orientação vertical, meio-corpo, blazer azul + top rosa, mão no quadril, expressão confiante — adequada para seção Sobre.
+- Salvei a foto no projeto: cp → /public/images/b-psicologa-shelen-santos.jpeg.
+- Atualizei site-content.ts: about.image de "/images/shelen-about.jpg" → "/images/b-psicologa-shelen-santos.jpeg".
+- Removi completamente o avatar circular (a "foto bolinha"):
+  - about.tsx: removi o <div> com className="...rounded-full..." que continha o <Image src={profileImage}> sobreposto no canto superior esquerdo.
+  - about.tsx: removi profileImage do AboutProps type e da desestruturação da função.
+  - page.tsx: removi profileImage={siteConfig.about.profileImage} do <About>.
+  - site-content.ts: removi o campo profileImage do objeto about.
+- Mantidos intactos (conforme solicitado):
+  - Quadro inferior FORMAÇÃO (Graduação Pitágoras + Pós-Graduação Venda Nova) ✓
+  - Texto da biografia ("Sou a Shelen Santos...") ✓
+  - 4 cards de destaques (Psicologia Comportamental, Foco em Burnout, Mulheres 25-45 anos, Online e Presencial) ✓
+  - Botão do WhatsApp ("Falar com a Shelen no WhatsApp" com ícone oficial) ✓
+- Correção adicional: padronizei o número do WhatsApp em todo o site para 553492530868 (12 dígitos, correto conforme Task 8). Antes havia inconsistência: contact.whatsapp e floatingWhatsapp.phone tinham 13 dígitos (5534925308688, com um 8 extra).
+- Lint: bun run lint → limpo.
+- Verificação com agent-browser:
+  - About images: 1 (apenas a foto principal), nenhuma dentro de div.rounded-full ✓ (avatar circular removido).
+  - Foto principal: b-psicologa-shelen-santos.jpeg ✓.
+  - FORMAÇÃO: Graduação Pitágoras + Pós Venda Nova ✓.
+  - Bio: "Sou a Shelen Santos..." ✓.
+  - 4 cards: Psicologia Comportamental, Foco em Burnout, Mulheres 25-45 anos, Online e Presencial ✓.
+  - Botão WhatsApp: "Falar com a Shelen no WhatsApp" ✓.
+  - VLM: confirma foto sem avatar circular, FORMAÇÃO card, bio, 4 cards, botão WhatsApp ✓.
+
+Stage Summary:
+- Avatar circular ("foto bolinha") completamente removido do about.
+- Foto principal substituída pela nova imagem b-psicologa-shelen-santos.jpeg (retrato, pose confiante).
+- FORMAÇÃO, biografia, 4 cards de destaques e botão do WhatsApp mantidos intactos.
+- Número do WhatsApp padronizado para 553492530868 em todo o site (correção de bug).
+- Lint limpo, verificado no browser.

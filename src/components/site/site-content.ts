@@ -17,7 +17,7 @@ export const siteConfig = {
     email: "shelenpsi@gmail.com",
     phone: "+55 34 9253-0868",
     instagram: "@shelenpsi",
-    whatsapp: "https://wa.me/5534925308688",
+    whatsapp: "https://wa.me/553492530868",
     location: "Online para o Brasil & Presencial",
   },
   nav: [
@@ -97,12 +97,11 @@ export const siteConfig = {
           "Psicologia Comportamental e Cognitiva – Faculdade Venda Nova do Imigrante",
       },
     ],
-    image: "/images/shelen-about.jpg",
-    profileImage: "/images/shelen-about.jpg",
+    image: "/images/b-psicologa-shelen-santos.jpeg",
     name: "Shelen Santos",
     role: "Psicóloga Comportamental • CRP-04/56080",
     ctaLabel: "Falar com a Shelen no WhatsApp",
-    whatsappUrl: "https://wa.me/5534925308688",
+    whatsappUrl: "https://wa.me/553492530868",
   },
   testimonials: {
     eyebrow: "Quem já começou",
@@ -124,7 +123,7 @@ export const siteConfig = {
   },
   // Floating WhatsApp button (bottom-left, JoinChat style with hover balloon)
   floatingWhatsapp: {
-    phone: "5534925308688",
+    phone: "553492530868",
     label: "Olá! Posso te ajudar?",
     message:
       "Olá, Shelen! Vim pelo site da Rota Antiburnout e gostaria de saber mais.",

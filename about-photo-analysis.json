@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**Description:**\n*   **Orientation:** Vertical (portrait).\n*   **Framing:** Medium shot, capturing the subject from the thighs up, centered in the frame.\n*   **Setting:** A bright, modern office or home workspace with a white wall, floating shelves holding books and frames, a desk with a laptop, and a potted plant.\n*   **Clothing:** Professional business attire consisting of a navy blue blazer and matching trousers, worn over a bright pink top and accessorized with a chunky black statement necklace.\n*   **Expression/Pose:** The subject stands with a confident posture, one hand on her hip and the other resting on a chair. She has a serious, direct gaze looking at the camera.\n\n**Suitability for 'About Me':**\n**Yes**, this image is highly suitable. The professional attire and office setting establish credibility and competence, while the direct eye contact and confident pose convey approachability and authority. The lighting is high-quality and professional, making it ideal for a corporate website, LinkedIn profile, or professional bio.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1791038715,
+  "id": "202610032245112676793b9f6349a8",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202610032245112676793b9f6349a8",
+  "usage": {
+    "completion_tokens": 217,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 2278,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2495
+  }
+}

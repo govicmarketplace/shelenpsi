@@ -12,7 +12,6 @@ type AboutProps = {
   credentials: string[];
   education: EducationItem[];
   image: string;
-  profileImage: string;
   name: string;
   role: string;
   ctaLabel: string;
@@ -27,7 +26,6 @@ export default function About({
   credentials,
   education,
   image,
-  profileImage,
   name,
   role,
   ctaLabel,
@@ -45,17 +43,6 @@ export default function About({
           {/* Image side */}
           <div className="reveal relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Profile photo - circular */}
-              <div className="absolute -left-2 -top-6 z-20 h-28 w-28 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl sm:h-36 sm:w-36 lg:-left-4 lg:-top-8">
-                <Image
-                  src={profileImage}
-                  alt={`Foto de perfil de ${name}`}
-                  fill
-                  sizes="(max-width: 768px) 112px, 144px"
-                  className="object-cover"
-                />
-              </div>
-
               {/* Main image */}
               <div className="overflow-hidden rounded-[2.5rem] border-4 border-white bg-white shadow-2xl shadow-rose-900/10">
                 <Image
