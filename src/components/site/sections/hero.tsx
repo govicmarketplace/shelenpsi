@@ -41,16 +41,16 @@ export default function Hero({
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-12 lg:pb-24 lg:pt-16 lg:px-8">
         {/* Left: copy */}
         <div className="flex flex-col items-start">
-          <h1 className="reveal text-4xl font-bold leading-[1.08] text-[var(--brand-text)] sm:text-5xl lg:text-6xl">
+          <h1 suppressHydrationWarning className="reveal text-4xl font-bold leading-[1.08] text-[var(--brand-text)] sm:text-5xl lg:text-6xl">
             {title}{" "}
             <span className="text-rose-gradient">{titleHighlight}</span>
           </h1>
 
-          <p className="reveal delay-100 mt-6 max-w-xl text-base leading-relaxed text-[var(--brand-text-muted)] sm:text-lg">
+          <p suppressHydrationWarning className="reveal delay-100 mt-6 max-w-xl text-base leading-relaxed text-[var(--brand-text-muted)] sm:text-lg">
             {subtitle}
           </p>
 
-          <div className="reveal delay-200 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div suppressHydrationWarning className="reveal delay-200 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <CtaButton label={ctaLabel} size="lg" href="#agendar" />
             <a
               href="#metodo"
@@ -60,7 +60,7 @@ export default function Hero({
             </a>
           </div>
 
-          <ul className="reveal delay-300 mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[var(--brand-text-muted)]">
+          <ul suppressHydrationWarning className="reveal delay-300 mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[var(--brand-text-muted)]">
             {badges.map((b) => (
               <li key={b} className="inline-flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-[var(--brand-rose)]" />
@@ -70,7 +70,7 @@ export default function Hero({
           </ul>
 
           {/* Mini social proof */}
-          <div className="reveal delay-500 mt-10 flex items-center gap-4">
+          <div suppressHydrationWarning className="reveal delay-500 mt-10 flex items-center gap-4">
             <div className="flex -space-x-3">
               {["MA", "RT", "CR", "JP"].map((i, idx) => (
                 <span
@@ -102,7 +102,7 @@ export default function Hero({
         </div>
 
         {/* Right: image */}
-        <div className="reveal delay-200 relative">
+        <div suppressHydrationWarning className="reveal delay-200 relative">
           <div className="relative mx-auto max-w-md lg:max-w-none">
             <div className="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-[2.5rem] bg-[var(--brand-rose-light)]/60" />
             <div className="relative overflow-hidden rounded-[2.5rem] border-4 border-white bg-white shadow-2xl shadow-rose-900/10">

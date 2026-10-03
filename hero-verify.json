@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "1. **Photo:** Yes. The image shows a professional woman on the right side wearing a navy blazer and a pink top, with a confident expression and her hand on her hip (similar to an arms-crossed posture).\n2. **Badges:** Yes. There are two floating badges:\n    *   Top right: \"ONLINE\" with \"Brasil & Mundo\".\n    *   Bottom left (on the image): \"PRESENCIAL\" with \"Rio de Janeiro\".\n3. **Layout:** The layout appears clean and well-structured. The text is legible, the image is properly framed with rounded corners, and the floating elements are positioned clearly without obscuring the subject's face. The overall design looks professional and balanced.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1791037382,
+  "id": "20261003222300a2aa54cc60af4ee9",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "20261003222300a2aa54cc60af4ee9",
+  "usage": {
+    "completion_tokens": 152,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1756,
+    "prompt_tokens_details": {
+      "cached_tokens": 2
+    },
+    "total_tokens": 1908
+  }
+}

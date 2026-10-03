@@ -301,3 +301,40 @@ Stage Summary:
 - Animação Scroll Reveal continua funcionando: above-the-fold anima na entrada, below-the-fold anima ao rolar.
 - Acessível: respeita prefers-reduced-motion; sem JS o conteúdo fica todo visível.
 - Lint limpo, sem erros, verificado no browser.
+
+---
+Task ID: 10
+Agent: main (Z.ai Code)
+Task: Substituir a foto do hero por nova foto anexada + corrigir erro de hidratação (React Hydration Error) no hero.tsx linha 44.
+
+Work Log:
+- Analisei a nova foto: Screenshot_2.png (modificada hoje 2026-10-03 14:08, 562x566). VLM confirmou: orientação vertical/retrato, enquadramento meio-corpo, blazer azul + top rosa, braços cruzados, expressão confiante/seria — adequada para hero banner.
+- Substituí a foto do hero: cp Screenshot_2.png → public/images/shelen-hero.jpg (MD5 verificado: de1f4dcae5b0552e73e4c0e263b962fb). O path no site-content.ts (/images/shelen-hero.jpg) permanece o mesmo, só o arquivo foi trocado.
+- Tags do hero verificadas (hero.tsx): badge "Online" = "Brasil & Mundo" ✓; badge "Presencial" = "Rio de Janeiro" ✓ (mantidas conforme solicitação do usuário).
+
+- Diagnóstico do erro de hidratação:
+  - Console do browser mostrava diff de mismatch:
+    + className="reveal delay-500 mt-10 flex items-center gap-4" (servidor)
+    - className="reveal delay-500 mt-10 flex items-center gap-4 is-visible" (cliente)
+  - Causa: o componente ScrollReveal usava useLayoutEffect (depois useEffect) para adicionar a classe `.is-visible` via classList.add() (manipulação direta do DOM que bypassa o virtual DOM). O React 19 (modo dev) re-checa o DOM após os efeitos e detecta a classe extra `is-visible` que não estava no HTML renderizado pelo servidor → mismatch.
+  
+- Correção aplicada (conforme sugestão do usuário): adicionei `suppressHydrationWarning` nas tags afetadas:
+  - hero.tsx: H1 (linha 44), <p> subtítulo, <div> grupo de CTAs, <ul> badges, <div> social proof, <div> container da imagem — todos os elementos com classe `reveal`.
+  - section-heading.tsx: div raiz (componente compartilhado por todas as seções) — ganha `suppressHydrationWarning` para evitar mismatch em todos os títulos de seção.
+  - Também mudei o ScrollReveal de useLayoutEffect → useEffect (garante que a mutação do DOM acontece após o mount + paint, claramente separada da hidratação).
+  - Verifiquei aninhamento HTML do H1: <h1> contém apenas texto + <span> (válido, sem <p> dentro de <h1>).
+
+- Lint: bun run lint → limpo.
+- Verificação com agent-browser:
+  - Console após reload: nenhum erro de hidratação (grep por hydrat|error|mismatch|attribute|warning retornou vazio) ✓.
+  - Foto do hero: shelen-hero.jpg (nova foto) ✓.
+  - Tags: "Rio de Janeiro" (Presencial) + "Brasil & Mundo" (Online) ✓.
+  - VLM: confirma foto da profissional (blazer azul + top rosa, expressão confiante), dois badges flutuantes (ONLINE/Brasil & Mundo e PRESENCIAL/Rio de Janeiro), layout limpo sem problemas.
+  - Scroll reveal ainda funciona: 6 elementos acima-da-dobra visíveis no load; 42 visíveis após scroll to bottom.
+  - Sem erros de página/runtime.
+
+Stage Summary:
+- Foto do hero substituída pela nova foto anexada (Screenshot_2.png — profissional de blazer azul + top rosa, braços cruzados, expressão confiante).
+- Tags mantidas ao redor da imagem: "Online (Brasil & Mundo)" e "Presencial (Rio de Janeiro)".
+- Erro de hidratação RESOLVIDO: adicionei `suppressHydrationWarning` nos elementos `.reveal` do hero + no SectionHeading (compartilhado), e mudei o ScrollReveal para `useEffect` (mutação DOM após mount/paint, separada da hidratação). Aninhamento HTML do H1 verificado (válido).
+- Lint limpo, sem erros de console, verificado no browser.

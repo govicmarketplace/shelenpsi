@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "**Orientation:** Vertical (Portrait)\n**Subject Framing:** Medium shot, centered, from the waist up\n**Setting:** Indoor office or home workspace with white walls, floating shelves with books and a frame in the background\n**Clothing:** Navy blue blazer over a bright pink top, accessorized with a chunky black layered necklace\n**Expression/Pose:** Confident and professional; arms crossed, direct eye contact with a serious, composed expression\n\n**Suitability for Hero Banner:** **Yes**, this image is well-suited for a tall portrait hero banner. The vertical orientation matches the required crop format, the subject is centered with ample headroom, and the clean, bright background provides good contrast for overlaying text. The professional yet approachable aesthetic works well for business or personal branding headers.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1791036946,
+  "id": "202610032215415cf8fac70b014615",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202610032215415cf8fac70b014615",
+  "usage": {
+    "completion_tokens": 163,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 440,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 603
+  }
+}

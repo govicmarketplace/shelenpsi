@@ -21,6 +21,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div
+      suppressHydrationWarning
       className={cn(
         "reveal max-w-3xl",
         align === "center" ? "mx-auto text-center" : "text-left",
