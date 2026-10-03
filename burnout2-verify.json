@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "1) Yes, a professional woman's photo is in the hero.\n2) Yes, the two floating badges (ONLINE/Brasil & Mundo and PRESENCIAL/Uberlândia) are present.\n3) Yes, two CTA buttons (\"Quero sair da sobrecarga\" and \"Conhecer a Rota\") are visible.",
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1791038352,
+  "id": "202610032239108dc2c421f3044c4c",
+  "model": "glm-5v-turbo",
+  "object": "chat.completion",
+  "request_id": "202610032239108dc2c421f3044c4c",
+  "usage": {
+    "completion_tokens": 75,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens": 1724,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1799
+  }
+}

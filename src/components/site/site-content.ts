@@ -37,7 +37,7 @@ export const siteConfig = {
     subtitle:
       "Você sente um cansaço que não passa com o descanso e vive sobrecarregada? Conheça o acompanhamento terapêutico que te ajuda a sair do esgotamento sem precisar largar a sua carreira.",
     badges: ["Para mulheres de 25 a 45 anos", "Online e presencial"],
-    image: "/images/shelen-hero.jpg",
+    image: "/images/shelen-psi-burnout2.png",
     imageAlt: "Shelen Santos, psicóloga, foto oficial",
     ctaLabel: "Quero sair da sobrecarga",
     secondaryCtaLabel: "Conhecer a Rota",

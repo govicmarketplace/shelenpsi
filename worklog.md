@@ -387,3 +387,29 @@ Stage Summary:
 - A foto anexada (shelen-psi-burnout.png) é idêntica (mesmo MD5) à foto já usada no hero (shelen-hero.jpg = Screenshot_2.png). Nenhuma substituição necessária.
 - Tags já corretas: Online = "Brasil & Mundo", Presencial = "Uberlândia".
 - Tudo verificado no browser.
+
+---
+Task ID: 13
+Agent: main (Z.ai Code)
+Task: Salvar a nova foto "shelen-psi-burnout2.png" no projeto e atualizar o componente Hero para usá-la, mantendo tags e botões intactos.
+
+Work Log:
+- Verifiquei a nova foto: /upload/shelen-psi-burnout2.png (562x566, PNG, MD5 de1f4dcae5b0552e73e4c0e263b962fb — mesmo conteúdo das fotos anteriores, mas com nome de arquivo diferente).
+- Salvei a foto no projeto: cp /upload/shelen-psi-burnout2.png → /public/images/shelen-psi-burnout2.png (respeitando o nome de arquivo solicitado pelo usuário).
+- Atualizei o caminho da imagem do hero em site-content.ts: hero.image de "/images/shelen-hero.jpg" → "/images/shelen-psi-burnout2.png".
+- Tags e botões mantidos intactos (nenhuma alteração):
+  - Badge Online: "Brasil & Mundo" ✓
+  - Badge Presencial: "Uberlândia" ✓
+  - CTA verde: "Quero sair da sobrecarga" ✓
+  - CTA outline: "Conhecer a Rota" ✓
+- Lint: bun run lint → limpo.
+- Verificação com agent-browser:
+  - Hero image src: "shelen-psi-burnout2.png" ✓ (componente <Image> agora usa a nova foto).
+  - Tags: "Uberlândia" (Presencial) + "Brasil & Mundo" (Online) ✓.
+  - VLM: confirma foto da profissional + dois badges (ONLINE/Brasil & Mundo, PRESENCIAL/Uberlândia) + dois CTAs visíveis ✓.
+
+Stage Summary:
+- Foto "shelen-psi-burnout2.png" salva em /public/images/shelen-psi-burnout2.png.
+- Componente <Image> do Hero (hero.tsx) atualizado via site-content.ts (hero.image) para usar "/images/shelen-psi-burnout2.png".
+- Tags (Online/Brasil & Mundo, Presencial/Uberlândia) e botões (Quero sair da sobrecarga, Conhecer a Rota) mantidos intactos.
+- Lint limpo, verificado no browser.
