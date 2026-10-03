@@ -363,3 +363,27 @@ Stage Summary:
 - Badge "Presencial" alterado de "Rio de Janeiro" → "Uberlândia".
 - Badge "Online" mantido "Brasil & Mundo".
 - Lint limpo, verificado no browser.
+
+---
+Task ID: 12
+Agent: main (Z.ai Code)
+Task: Substituir a foto do hero por "shelen-psi-burnout.png" (nova foto anexada) + manter layout/botões/tags 'Online (Brasil & Mundo)' e 'Presencial (Uberlândia)'.
+
+Work Log:
+- Verifiquei se a nova foto era diferente da atual:
+  - MD5 de /upload/shelen-psi-burnout.png: de1f4dcae5b0552e73e4c0e263b962fb
+  - MD5 de /public/images/shelen-hero.jpg: de1f4dcae5b0552e73e4c0e263b962fb
+  - Arquivos idênticos → o usuário re-enviou a mesma foto com nome diferente (shelen-psi-burnout.png vs Screenshot_2.png). A foto do hero já é essa imagem.
+- Tags já estavam corretas da tarefa anterior:
+  - Badge Online: "Brasil & Mundo" ✓
+  - Badge Presencial: "Uberlândia" ✓ (alterado de "Rio de Janeiro" na Task 11)
+- Lint: limpo (nenhuma alteração de código necessária).
+- Verificação com agent-browser:
+  - Hero tags: "Uberlândia" (Presencial) + "Brasil & Mundo" (Online) ✓.
+  - Hero photo: shelen-hero.jpg (a foto anexada) ✓.
+  - VLM: confirma foto da profissional + dois badges (ONLINE/Brasil & Mundo e PRESENCIAL/Uberlândia) ✓.
+
+Stage Summary:
+- A foto anexada (shelen-psi-burnout.png) é idêntica (mesmo MD5) à foto já usada no hero (shelen-hero.jpg = Screenshot_2.png). Nenhuma substituição necessária.
+- Tags já corretas: Online = "Brasil & Mundo", Presencial = "Uberlândia".
+- Tudo verificado no browser.
